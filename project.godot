@@ -13,6 +13,7 @@ config_version=5
 config/name="deivid-v-space"
 config/features=PackedStringArray("4.5", "GL Compatibility")
 config/icon="res://icon.svg"
+config/tags=PackedStringArray("favorite", "kuva")
 
 [rendering]
 
