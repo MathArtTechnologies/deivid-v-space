@@ -1,0 +1,127 @@
+[gd_scene load_steps=4 format=3 uid="uid://dxkypaiotqx0o"]
+
+[ext_resource type="Script" uid="uid://du63oekpchia6" path="res://scripts/sand_box/movement_test/game.gd" id="1_xloyl"]
+[ext_resource type="Script" uid="uid://pouf1yivbscj" path="res://scripts/sand_box/movement_test/display.gd" id="2_npv15"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_7ud5i"]
+size = Vector3(5, 5, 5)
+
+[node name="Game" type="Node3D"]
+script = ExtResource("1_xloyl")
+
+[node name="Display" type="Control" parent="."]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_npv15")
+
+[node name="Fade" type="ColorRect" parent="Display"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.28235295)
+
+[node name="NetworkControls" type="CenterContainer" parent="Display"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Display/NetworkControls"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+theme_override_constants/separation = 8
+alignment = 1
+
+[node name="Join" type="Button" parent="Display/NetworkControls/VBoxContainer"]
+layout_mode = 2
+text = "Join"
+
+[node name="Host" type="Button" parent="Display/NetworkControls/VBoxContainer"]
+layout_mode = 2
+text = "Host"
+
+[node name="ClientInfo" type="Label" parent="Display"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 5.0
+offset_right = 5.0
+offset_bottom = 23.0
+grow_horizontal = 2
+text = "peer_id: 1"
+
+[node name="Environment" type="Node" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Environment"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.43856812, 9.928387, -94.54502)
+mesh = SubResource("BoxMesh_7ud5i")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Environment"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -45.509262, 9.928387, -94.54502)
+mesh = SubResource("BoxMesh_7ud5i")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="Environment"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 52.706627, 9.928387, -94.54502)
+mesh = SubResource("BoxMesh_7ud5i")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="Environment"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.43856812, 9.928387, 110.181786)
+mesh = SubResource("BoxMesh_7ud5i")
+
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="Environment"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -45.509262, 9.928387, 110.181786)
+mesh = SubResource("BoxMesh_7ud5i")
+
+[node name="MeshInstance3D6" type="MeshInstance3D" parent="Environment"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 52.706627, 9.928387, 110.181786)
+mesh = SubResource("BoxMesh_7ud5i")
+
+[node name="MeshInstance3D7" type="MeshInstance3D" parent="Environment"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.43856812, 76.296326, 29.496971)
+mesh = SubResource("BoxMesh_7ud5i")
+
+[node name="MeshInstance3D8" type="MeshInstance3D" parent="Environment"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -45.509262, 76.296326, 29.496971)
+mesh = SubResource("BoxMesh_7ud5i")
+
+[node name="MeshInstance3D9" type="MeshInstance3D" parent="Environment"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 52.706627, 76.296326, 29.496971)
+mesh = SubResource("BoxMesh_7ud5i")
+
+[node name="MeshInstance3D10" type="MeshInstance3D" parent="Environment"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.43856812, -50.056442, 29.496971)
+mesh = SubResource("BoxMesh_7ud5i")
+
+[node name="MeshInstance3D11" type="MeshInstance3D" parent="Environment"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -45.509262, -50.056442, 29.496971)
+mesh = SubResource("BoxMesh_7ud5i")
+
+[node name="MeshInstance3D12" type="MeshInstance3D" parent="Environment"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 52.706627, -50.056442, 29.496971)
+mesh = SubResource("BoxMesh_7ud5i")
+
+[node name="MeshInstance3D13" type="MeshInstance3D" parent="Environment"]
+transform = Transform3D(0.15963995, 0, 0.9871753, 0, 1, 0, -0.9871753, 0, 0.15963995, -110.01046, 76.296326, 31.576696)
+mesh = SubResource("BoxMesh_7ud5i")
+
+[node name="MeshInstance3D14" type="MeshInstance3D" parent="Environment"]
+transform = Transform3D(0.15963995, 0, 0.9871753, 0, 1, 0, -0.9871753, 0, 0.15963995, -117.345566, 76.296326, 76.93526)
+mesh = SubResource("BoxMesh_7ud5i")
+
+[node name="MeshInstance3D15" type="MeshInstance3D" parent="Environment"]
+transform = Transform3D(0.15963995, 0, 0.9871753, 0, 1, 0, -0.9871753, 0, 0.15963995, -101.66639, 76.296326, -20.021042)
+mesh = SubResource("BoxMesh_7ud5i")
+
+[node name="MultiplayerSpawner" type="MultiplayerSpawner" parent="."]
+_spawnable_scenes = PackedStringArray("uid://cp0lfbi17x0r8")
+spawn_path = NodePath("..")

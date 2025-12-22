@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://brsfw5qan0sh3"]
+
+[ext_resource type="Script" uid="uid://bdfwd04j84lad" path="res://scripts/components/character_rotation_comp.gd" id="1_gn4hs"]
+
+[node name="CharacterRotationComp" type="Node"]
+script = ExtResource("1_gn4hs")
