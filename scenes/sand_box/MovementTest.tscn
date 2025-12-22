@@ -1,19 +1,15 @@
-[gd_scene load_steps=5 format=3 uid="uid://dxkypaiotqx0o"]
+[gd_scene load_steps=4 format=3 uid="uid://dxkypaiotqx0o"]
 
 [ext_resource type="Script" uid="uid://du63oekpchia6" path="res://scripts/sand_box/movement_test/game.gd" id="1_xloyl"]
-[ext_resource type="Script" uid="uid://b64trhrhyvtg7" path="res://scripts/sand_box/movement_test/ui_pause.gd" id="2_lgdfk"]
-[ext_resource type="Script" uid="uid://c3labu7i5bl68" path="res://scripts/sand_box/movement_test/ui_game.gd" id="4_13c0c"]
+[ext_resource type="Script" uid="uid://pouf1yivbscj" path="res://scripts/sand_box/movement_test/display.gd" id="2_npv15"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_7ud5i"]
 size = Vector3(5, 5, 5)
 
-[node name="Root" type="Node3D"]
+[node name="Game" type="Node3D"]
 script = ExtResource("1_xloyl")
 
-[node name="Camera" type="Camera3D" parent="."]
-transform = Transform3D(-4.371139e-08, 0.34202015, -0.9396927, 0, 0.9396927, 0.34202015, 1, 1.4950176e-08, -4.107527e-08, -246.24948, 113.54675, 0)
-
-[node name="UI" type="Control" parent="."]
+[node name="Display" type="Control" parent="."]
 process_mode = 3
 layout_mode = 3
 anchors_preset = 15
@@ -21,8 +17,9 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("2_npv15")
 
-[node name="ColorRect" type="ColorRect" parent="UI"]
+[node name="Fade" type="ColorRect" parent="Display"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -31,116 +28,37 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 0.28235295)
 
-[node name="VBoxContainer" type="VBoxContainer" parent="UI"]
+[node name="NetworkControls" type="CenterContainer" parent="Display"]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -125.0
-offset_top = -82.5
-offset_right = 125.0
-offset_bottom = 82.5
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/separation = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Display/NetworkControls"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+theme_override_constants/separation = 8
 alignment = 1
 
-[node name="HBoxContainer" type="HBoxContainer" parent="UI/VBoxContainer"]
-layout_mode = 2
-size_flags_vertical = 3
-theme_override_constants/separation = 10
-
-[node name="LHost" type="Label" parent="UI/VBoxContainer/HBoxContainer"]
-layout_mode = 2
-text = "Address"
-
-[node name="Host" type="TextEdit" parent="UI/VBoxContainer/HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-text = "localhost"
-
-[node name="HBoxContainer2" type="HBoxContainer" parent="UI/VBoxContainer"]
-layout_mode = 2
-size_flags_vertical = 3
-theme_override_constants/separation = 40
-
-[node name="LPort" type="Label" parent="UI/VBoxContainer/HBoxContainer2"]
-layout_mode = 2
-text = "Port"
-
-[node name="Port" type="TextEdit" parent="UI/VBoxContainer/HBoxContainer2"]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-text = "34350"
-
-[node name="ButtonJoin" type="Button" parent="UI/VBoxContainer"]
+[node name="Join" type="Button" parent="Display/NetworkControls/VBoxContainer"]
 layout_mode = 2
 text = "Join"
 
-[node name="ButtonHost" type="Button" parent="UI/VBoxContainer"]
+[node name="Host" type="Button" parent="Display/NetworkControls/VBoxContainer"]
 layout_mode = 2
 text = "Host"
 
-[node name="UIPause" type="Control" parent="."]
-process_mode = 3
-visible = false
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-script = ExtResource("2_lgdfk")
-
-[node name="ColorRect" type="ColorRect" parent="UIPause"]
+[node name="ClientInfo" type="Label" parent="Display"]
 layout_mode = 1
-anchors_preset = 15
+anchors_preset = 10
 anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0, 0, 0, 0.28235295)
-
-[node name="Label" type="Label" parent="UIPause"]
-visible = false
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -28.5
-offset_top = -11.5
-offset_right = 28.5
-offset_bottom = 11.5
-grow_horizontal = 2
-grow_vertical = 2
-text = "Paused"
-
-[node name="UIGame" type="Control" parent="."]
-layout_mode = 3
-anchors_preset = 0
-offset_right = 362.0
-offset_bottom = 223.0
-script = ExtResource("4_13c0c")
-
-[node name="LPeerId" type="Label" parent="UIGame"]
-layout_mode = 0
-offset_right = 40.0
+offset_left = 5.0
+offset_right = 5.0
 offset_bottom = 23.0
-text = "Peer Id: ####"
-
-[node name="LRole" type="Label" parent="UIGame"]
-layout_mode = 0
-offset_top = 25.0
-offset_right = 182.0
-offset_bottom = 74.0
-text = "Role: #####
-"
+grow_horizontal = 2
+text = "peer_id: 1"
 
 [node name="Environment" type="Node" parent="."]
 
@@ -207,6 +125,3 @@ mesh = SubResource("BoxMesh_7ud5i")
 [node name="MultiplayerSpawner" type="MultiplayerSpawner" parent="."]
 _spawnable_scenes = PackedStringArray("uid://cp0lfbi17x0r8")
 spawn_path = NodePath("..")
-
-[connection signal="pressed" from="UI/VBoxContainer/ButtonJoin" to="UI" method="_on_button_join_pressed"]
-[connection signal="pressed" from="UI/VBoxContainer/ButtonHost" to="UI" method="_on_button_host_pressed"]

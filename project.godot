@@ -18,7 +18,7 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-Globals="*res://scripts/sand_box/movement_test/globals.gd"
+Globals="*res://scripts/sand_box/movement_test/constants.gd"
 
 [input]
 
