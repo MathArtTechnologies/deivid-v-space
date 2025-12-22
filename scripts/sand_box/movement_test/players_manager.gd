@@ -14,21 +14,17 @@ func _on_peer_connected(peer_id : int):
 	self._add_player_character(peer_id)
 
 func _add_player_character(peer_id : int):
+	if not multiplayer.is_server():
+		return
+	
 	var player_character : Spaceship = self.player_scene.instantiate()
 	
 	if peer_id == 1:
 		return
 	
 	player_character.name = str(peer_id)
-	player_character.set_multiplayer_authority(peer_id)
-	#else:
-		#player_character.name = str()
-		#player_character.set_multiplayer_authority(multiplayer.get_unique_id())
 	
 	self.add_child(player_character)
-	
-	if player_character.is_multiplayer_authority():
-		player_character.camera.current = true
 	
 	self.spawned_character.emit(peer_id)
 

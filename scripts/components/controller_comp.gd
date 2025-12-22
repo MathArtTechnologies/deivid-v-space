@@ -5,16 +5,8 @@ var camera : Camera3D
 
 var viewport : Viewport
 
-var do_reposition_mouse : bool = true
-
-signal pause()
-
 func _ready() -> void:
 	self.viewport = get_viewport()
-
-func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("ui_cancel"):
-		self.pause.emit()
 
 func get_move_direction() -> Vector3:
 	var direction = 0
@@ -39,11 +31,11 @@ func get_rotation() -> Vector3:
 	
 	return rotation.normalized()
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	if not is_multiplayer_authority():
 		return
 	
-	if self.do_reposition_mouse == false:
+	if Constants.paused == true:
 		return
 	
 	var mouse_pos := self.viewport.get_mouse_position()

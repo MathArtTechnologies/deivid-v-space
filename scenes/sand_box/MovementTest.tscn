@@ -1,11 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://dxkypaiotqx0o"]
+[gd_scene load_steps=5 format=3 uid="uid://dxkypaiotqx0o"]
 
-[ext_resource type="Script" uid="uid://b6ganfq23sdj1" path="res://scripts/networking/server.gd" id="1_13c0c"]
 [ext_resource type="Script" uid="uid://du63oekpchia6" path="res://scripts/sand_box/movement_test/game.gd" id="1_xloyl"]
-[ext_resource type="Script" uid="uid://ch1agfobf4drk" path="res://scripts/networking/client.gd" id="2_xloyl"]
-[ext_resource type="Script" uid="uid://chapym3e2u8cm" path="res://scripts/sand_box/movement_test/ui.gd" id="3_5iirr"]
-[ext_resource type="PackedScene" uid="uid://f5aggkykyjuk" path="res://scenes/components/ControllerComp.tscn" id="4_4nmwc"]
-[ext_resource type="Script" uid="uid://du00rql103t1i" path="res://scripts/sand_box/movement_test/players_manager.gd" id="4_5iirr"]
+[ext_resource type="Script" uid="uid://b64trhrhyvtg7" path="res://scripts/sand_box/movement_test/ui_pause.gd" id="2_lgdfk"]
+[ext_resource type="Script" uid="uid://c3labu7i5bl68" path="res://scripts/sand_box/movement_test/ui_game.gd" id="4_13c0c"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_7ud5i"]
 size = Vector3(5, 5, 5)
@@ -16,15 +13,6 @@ script = ExtResource("1_xloyl")
 [node name="Camera" type="Camera3D" parent="."]
 transform = Transform3D(-4.371139e-08, 0.34202015, -0.9396927, 0, 0.9396927, 0.34202015, 1, 1.4950176e-08, -4.107527e-08, -246.24948, 113.54675, 0)
 
-[node name="Server" type="Node" parent="."]
-script = ExtResource("1_13c0c")
-
-[node name="Client" type="Node" parent="."]
-script = ExtResource("2_xloyl")
-
-[node name="Players" type="Node" parent="."]
-script = ExtResource("4_5iirr")
-
 [node name="UI" type="Control" parent="."]
 process_mode = 3
 layout_mode = 3
@@ -33,7 +21,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("3_5iirr")
 
 [node name="ColorRect" type="ColorRect" parent="UI"]
 layout_mode = 1
@@ -98,7 +85,62 @@ text = "Join"
 layout_mode = 2
 text = "Host"
 
-[node name="ControllerComp" parent="UI" instance=ExtResource("4_4nmwc")]
+[node name="UIPause" type="Control" parent="."]
+process_mode = 3
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_lgdfk")
+
+[node name="ColorRect" type="ColorRect" parent="UIPause"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.28235295)
+
+[node name="Label" type="Label" parent="UIPause"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -28.5
+offset_top = -11.5
+offset_right = 28.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Paused"
+
+[node name="UIGame" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 362.0
+offset_bottom = 223.0
+script = ExtResource("4_13c0c")
+
+[node name="LPeerId" type="Label" parent="UIGame"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+text = "Peer Id: ####"
+
+[node name="LRole" type="Label" parent="UIGame"]
+layout_mode = 0
+offset_top = 25.0
+offset_right = 182.0
+offset_bottom = 74.0
+text = "Role: #####
+"
 
 [node name="Environment" type="Node" parent="."]
 
@@ -162,43 +204,9 @@ mesh = SubResource("BoxMesh_7ud5i")
 transform = Transform3D(0.15963995, 0, 0.9871753, 0, 1, 0, -0.9871753, 0, 0.15963995, -101.66639, 76.296326, -20.021042)
 mesh = SubResource("BoxMesh_7ud5i")
 
-[node name="UIPause" type="Control" parent="."]
-visible = false
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="ColorRect" type="ColorRect" parent="UIPause"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0, 0, 0, 0.28235295)
-
-[node name="Label" type="Label" parent="UIPause"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -28.5
-offset_top = -11.5
-offset_right = 28.5
-offset_bottom = 11.5
-grow_horizontal = 2
-grow_vertical = 2
-text = "Paused"
-
 [node name="MultiplayerSpawner" type="MultiplayerSpawner" parent="."]
 _spawnable_scenes = PackedStringArray("uid://cp0lfbi17x0r8")
-spawn_path = NodePath("../Players")
+spawn_path = NodePath("..")
 
 [connection signal="pressed" from="UI/VBoxContainer/ButtonJoin" to="UI" method="_on_button_join_pressed"]
 [connection signal="pressed" from="UI/VBoxContainer/ButtonHost" to="UI" method="_on_button_host_pressed"]
-[connection signal="spawned" from="MultiplayerSpawner" to="Players" method="_on_multiplayer_spawner_spawned"]
