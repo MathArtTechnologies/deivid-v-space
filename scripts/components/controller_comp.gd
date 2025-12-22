@@ -38,12 +38,7 @@ func _physics_process(_delta: float) -> void:
 	if Constants.paused == true:
 		return
 	
-	var mouse_pos := self.viewport.get_mouse_position()
-	# print("viewport size: ", self.viewport.size)
+	# var mouse_pos := self.viewport.get_mouse_position()
 	var sceen_center := Vector2(self.viewport.size.x / 2, self.viewport.size.y / 2)
-	
-	# var dir = sceen_center - mouse_pos
-	
-	# var target_pos = mouse_pos + (dir * delta) 
 	
 	Input.warp_mouse(sceen_center)

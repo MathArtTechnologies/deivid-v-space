@@ -13,10 +13,10 @@ func _process(_delta: float) -> void:
 	else:
 		self.info_label.text = "peer_id: 1"
 
-func set_lobby_menu_visible(visible: bool) -> void:
-	self.network_controls.visible = visible
-	self.fade.visible = visible
+func set_lobby_menu_visible(visible_: bool) -> void:
+	self.network_controls.visible = visible_
+	self.fade.visible = visible_
 
-func set_pause_menu_visible(visible: bool) -> void:
-	self.fade.visible = visible
-	Constants.paused = visible
+func set_pause_menu_visible(visible_: bool) -> void:
+	self.fade.visible = visible_
+	Constants.paused = visible_
