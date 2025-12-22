@@ -25,9 +25,13 @@ func get_rotation() -> Vector3:
 	var mouse_pos := get_viewport().get_mouse_position()
 	var center : Vector2 = self.viewport.size / 2
 	
-	rotation.y = 0
 	rotation.x = center.y - mouse_pos.y
 	rotation.z = center.x - mouse_pos.x
+	
+	if Input.is_action_pressed("left_tilt"):
+		rotation.y -= 1
+	if Input.is_action_pressed("right_tilt"):
+		rotation.y += 1
 	
 	return rotation.normalized()
 
