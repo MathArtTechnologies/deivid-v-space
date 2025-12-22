@@ -22,11 +22,19 @@ func get_move_direction() -> Vector3:
 
 func get_rotation() -> Vector3:
 	var rotation := Vector3(0, 0, 0)
+	
+	# consider mouse
 	var mouse_pos := get_viewport().get_mouse_position()
 	var center : Vector2 = self.viewport.size / 2
 	
 	rotation.x = center.y - mouse_pos.y
 	rotation.z = center.x - mouse_pos.x
+	
+	# consider joystick
+	var joystick_dir : Vector2 = Input.get_vector("left", "right", "up", "down")
+	
+	rotation.x = joystick_dir.y * -1
+	rotation.z = joystick_dir.x * -1
 	
 	if Input.is_action_pressed("left_tilt"):
 		rotation.y -= 1
