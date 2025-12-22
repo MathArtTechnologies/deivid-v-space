@@ -16,7 +16,15 @@ func _process(_delta: float) -> void:
 func set_lobby_menu_visible(visible_: bool) -> void:
 	self.network_controls.visible = visible_
 	self.fade.visible = visible_
+	self._set_cursor_visible(visible_)
 
 func set_pause_menu_visible(visible_: bool) -> void:
 	self.fade.visible = visible_
 	Constants.paused = visible_
+	self._set_cursor_visible(visible_)
+
+func _set_cursor_visible(visible_ : bool) -> void:
+	if not visible_:
+		Input.mouse_mode = Input.MOUSE_MODE_CONFINED_HIDDEN
+	else:
+		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
