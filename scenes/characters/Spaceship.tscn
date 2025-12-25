@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://lrwjwfaigr0t" path="res://scenes/components/CharacterVelocityComp.tscn" id="2_18nwe"]
 [ext_resource type="ArrayMesh" uid="uid://df0eyt7x1y6un" path="res://models/spaceship.obj" id="2_kroix"]
 [ext_resource type="PackedScene" uid="uid://brsfw5qan0sh3" path="res://scenes/components/CharacterRotationComp.tscn" id="3_hyrv2"]
-[ext_resource type="PackedScene" uid="uid://f5aggkykyjuk" path="res://scenes/components/ControllerComp.tscn" id="3_w4wvo"]
+[ext_resource type="PackedScene" uid="uid://f5aggkykyjuk" path="res://scenes/components/CharacterControllerComp.tscn" id="3_w4wvo"]
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_x7kw5"]
 points = PackedVector3Array(1, 0.0068258713, 0.7928281, 0.33320284, 0.4945126, 0.19662654, -1, 0.0068258713, 0.7928281, 1, 0, 0.7928281, 1, 0.13608173, -0.33340025, -0.33339858, 0.4945126, 0.19662654, 0.33320284, 0.4945126, -0.33340025, -1, 0, 0.7928281, -1, 0.13608173, -0.33340025, 1, 0, -0.33340025, 0, 0.13608173, -1.346545, -0.33339858, 0.4945126, -0.33340025, 0, 0.2765204, -0.98321176, -1, 0, -0.33340025, 0, 0, -1.346545)
@@ -35,7 +35,7 @@ shape = SubResource("ConvexPolygonShape3D_x7kw5")
 
 [node name="CharacterRotationComp" parent="." instance=ExtResource("3_hyrv2")]
 
-[node name="ControllerComp" parent="." instance=ExtResource("3_w4wvo")]
+[node name="CharacterControllerComp" parent="." instance=ExtResource("3_w4wvo")]
 
 [node name="Camera" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, -4, 1.5)

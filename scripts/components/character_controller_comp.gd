@@ -1,4 +1,4 @@
-class_name ControllerComp extends Node
+class_name CharacterControllerComp extends Node
 
 var entity : Node3D
 var camera : Camera3D

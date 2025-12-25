@@ -1,39 +1,37 @@
 class_name Spaceship extends CharacterBody3D
 
 var character_velocity_comp : CharacterVelocityComp
-var controller_comp : ControllerComp
+var controller_comp : CharacterControllerComp
 var character_rotation_component : CharacterRotationComp
 
-var speed = 10
-
 var camera : Camera3D
+
+var rotation_speed : float = 20.0
+var movement_speed : float = 1.5
 
 func _ready() -> void:
 	self.character_velocity_comp = $CharacterVelocityComp
 	self.character_velocity_comp.direction = Vector3(0, 0, 0)
-	self.character_velocity_comp.speed = 20
+	self.character_velocity_comp.speed = self.movement_speed
 	self.character_velocity_comp.entity = self
 	
 	self.character_rotation_component = $CharacterRotationComp
 	self.character_rotation_component.rotation = Vector3(0, 0, 0)
-	self.character_rotation_component.speed = 2
+	self.character_rotation_component.speed = self.rotation_speed
 	self.character_rotation_component.entity = self
+	
+	self.controller_comp = $ControllerComp
+	self.controller_comp.camera = self.camera
+	self.controller_comp.entity = self
 	
 	self.camera = $Camera
 	
 	if is_multiplayer_authority():
 		self.camera.current = true
-	
-	self.controller_comp = $ControllerComp
-	self.controller_comp.camera = self.camera
-	self.controller_comp.entity = self
 
 func _input(event: InputEvent) -> void:
 	if not is_multiplayer_authority():
 		return
-	
-	if event.is_action_pressed("ui_text_backspace"):
-		self.position = Vector3(4, 4, 4)
 
 func _physics_process(delta: float) -> void:
 	if not is_multiplayer_authority():
@@ -42,7 +40,5 @@ func _physics_process(delta: float) -> void:
 	if Constants.paused == true:
 		return
 	
-	self.character_velocity_comp.direction = self.controller_comp.get_move_direction() * delta * speed
+	self.character_velocity_comp.direction = self.controller_comp.get_move_direction()
 	self.character_rotation_component.rotation = self.controller_comp.get_rotation()
-	
-	move_and_slide()
