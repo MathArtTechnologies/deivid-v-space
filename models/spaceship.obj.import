@@ -1,0 +1,25 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://df0eyt7x1y6un"
+path="res://.godot/imported/spaceship.obj-7f73b8a60fd97a3d1decba99114bcbb3.mesh"
+
+[deps]
+
+files=["res://.godot/imported/spaceship.obj-7f73b8a60fd97a3d1decba99114bcbb3.mesh"]
+
+source_file="res://models/spaceship.obj"
+dest_files=["res://.godot/imported/spaceship.obj-7f73b8a60fd97a3d1decba99114bcbb3.mesh", "res://.godot/imported/spaceship.obj-7f73b8a60fd97a3d1decba99114bcbb3.mesh"]
+
+[params]
+
+generate_tangents=true
+generate_lods=true
+generate_shadow_mesh=true
+generate_lightmap_uv2=false
+generate_lightmap_uv2_texel_size=0.2
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+force_disable_mesh_compression=false
