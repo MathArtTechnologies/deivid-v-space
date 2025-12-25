@@ -33,8 +33,8 @@ func get_rotation() -> Vector3:
 	# consider joystick
 	var joystick_dir : Vector2 = Input.get_vector("left", "right", "up", "down")
 	
-	rotation.x =+ joystick_dir.y * -1
-	rotation.z =+ joystick_dir.x * -1
+	rotation.x += joystick_dir.y * -1
+	rotation.z += joystick_dir.x * -1
 	
 	if Input.is_action_pressed("left_tilt"):
 		rotation.y -= 1
