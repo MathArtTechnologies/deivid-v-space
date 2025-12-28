@@ -20,11 +20,11 @@ func _ready() -> void:
 	self.character_rotation_component.speed = self.rotation_speed
 	self.character_rotation_component.entity = self
 	
-	self.controller_comp = $ControllerComp
+	self.camera = $Camera
+	
+	self.controller_comp = $CharacterControllerComp
 	self.controller_comp.camera = self.camera
 	self.controller_comp.entity = self
-	
-	self.camera = $Camera
 	
 	if is_multiplayer_authority():
 		self.camera.current = true
