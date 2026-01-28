@@ -6,8 +6,8 @@ var character_rotation_component : CharacterRotationComp
 
 var camera : Camera3D
 
-var rotation_speed : float = 20.0
-var movement_speed : float = 1.5
+var rotation_speed : float = 1.5
+var movement_speed : float = 20
 
 func _ready() -> void:
 	self.character_velocity_comp = $CharacterVelocityComp
