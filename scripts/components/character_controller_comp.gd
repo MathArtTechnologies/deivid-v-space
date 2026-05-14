@@ -31,14 +31,14 @@ func get_rotation() -> Vector3:
 	rotation.z = center.x - mouse_pos.x
 	
 	# consider joystick
-	var joystick_dir : Vector2 = Input.get_vector("left", "right", "up", "down")
+	var joystick_dir : Vector2 = Input.get_vector("yaw_left", "yaw_right", "pitch_up", "pitch_down")
 	
 	rotation.x += joystick_dir.y * -1
 	rotation.z += joystick_dir.x * -1
 	
-	if Input.is_action_pressed("left_tilt"):
+	if Input.is_action_pressed("roll_left"):
 		rotation.y -= 1
-	if Input.is_action_pressed("right_tilt"):
+	if Input.is_action_pressed("roll_right"):
 		rotation.y += 1
 	
 	return rotation.normalized()
