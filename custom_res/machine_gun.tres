@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="shoot_type" format=3 uid="uid://cmdblur5dn41i"]
+
+[ext_resource type="Script" uid="uid://c136gxelanc4i" path="res://custom_res/shoot_type.gd" id="1_3o60t"]
+
+[resource]
+script = ExtResource("1_3o60t")
+Nombre = "machine_gun"
+Frecuencia = 20.0
+metadata/_custom_type_script = "uid://c136gxelanc4i"

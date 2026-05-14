@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="shoot_type" format=3 uid="uid://byvmobyxul4x"]
+
+[ext_resource type="Script" uid="uid://c136gxelanc4i" path="res://custom_res/shoot_type.gd" id="1_g5ko2"]
+
+[resource]
+script = ExtResource("1_g5ko2")
+metadata/_custom_type_script = "uid://c136gxelanc4i"

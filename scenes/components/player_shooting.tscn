@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://bv4w7cr2psbxc"]
+
+[ext_resource type="Script" uid="uid://c7skrhe0qwmwj" path="res://scripts/components/player_shooting.gd" id="1_tg27h"]
+[ext_resource type="Resource" uid="uid://w03nigwfqvkk" path="res://custom_res/weapon_menu.tres" id="2_h6dcc"]
+
+[node name="player_shooting" type="Node3D" unique_id=2143533939]
+script = ExtResource("1_tg27h")
+armas = ExtResource("2_h6dcc")
