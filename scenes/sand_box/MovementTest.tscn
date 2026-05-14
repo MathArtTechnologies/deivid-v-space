@@ -2,6 +2,17 @@
 
 [ext_resource type="Script" uid="uid://du63oekpchia6" path="res://scripts/sand_box/movement_test/game.gd" id="1_xloyl"]
 [ext_resource type="Script" uid="uid://pouf1yivbscj" path="res://scripts/sand_box/movement_test/display.gd" id="2_npv15"]
+[ext_resource type="Texture2D" uid="uid://b2yw3qmmsieps" path="res://panoramas/panorama_green_nebula.png" id="3_lgdfk"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_13c0c"]
+panorama = ExtResource("3_lgdfk")
+
+[sub_resource type="Sky" id="Sky_xloyl"]
+sky_material = SubResource("PanoramaSkyMaterial_13c0c")
+
+[sub_resource type="Environment" id="Environment_5iirr"]
+background_mode = 2
+sky = SubResource("Sky_xloyl")
 
 [sub_resource type="BoxMesh" id="BoxMesh_7ud5i"]
 size = Vector3(5, 5, 5)
@@ -12,6 +23,9 @@ size = Vector3(5, 5, 5)
 
 [node name="Game" type="Node3D" unique_id=2027372564]
 script = ExtResource("1_xloyl")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=2079096416]
+environment = SubResource("Environment_5iirr")
 
 [node name="Display" type="Control" parent="." unique_id=1897870470]
 process_mode = 3
