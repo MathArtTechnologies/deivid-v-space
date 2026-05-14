@@ -11,10 +11,10 @@ func _ready() -> void:
 func get_move_direction() -> Vector3:
 	var direction = 0
 	
-	if Input.is_action_pressed("forward"):
+	if Input.is_action_pressed("thrust"):
 		direction += 1
-	if Input.is_action_pressed("backward"):
-		direction -= 1
+	#if Input.is_action_pressed("backward"):
+		#direction -= 1
 	
 	direction = direction * entity.basis.y
 	
