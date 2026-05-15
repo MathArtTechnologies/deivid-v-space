@@ -40,5 +40,15 @@ func _physics_process(delta: float) -> void:
 	if Constants.paused == true:
 		return
 	
-	self.character_velocity_comp.direction = self.controller_comp.get_move_direction()
-	self.character_rotation_component.rotation = self.controller_comp.get_rotation()
+	var move_dir := self.controller_comp.get_move_direction()
+	var rotation := self.controller_comp.get_rotation()
+	
+	_set_engine_is_trusting(move_dir != Vector3.ZERO or rotation != Vector3.ZERO)
+	
+	self.character_velocity_comp.direction = move_dir
+	self.character_rotation_component.rotation = rotation
+
+func _set_engine_is_trusting(is_trusting: bool) -> void:
+	var particles = $EngineParticles
+	
+	particles.emitting = is_trusting

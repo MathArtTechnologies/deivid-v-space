@@ -19,28 +19,21 @@ properties/1/path = NodePath(".:rotation")
 properties/1/spawn = true
 properties/1/replication_mode = 1
 
-[sub_resource type="Gradient" id="Gradient_x7kw5"]
-offsets = PackedFloat32Array(0.8113208, 1)
-colors = PackedColorArray(0.44843107, 0.05121699, 0, 1, 0.77676696, 0.6620706, 0, 1)
-
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_oyu7o"]
-gradient = SubResource("Gradient_x7kw5")
-
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_kroix"]
-gravity = Vector3(0, 0, 9.8)
-scale_min = 0.5
-scale_max = 0.5
-color_ramp = SubResource("GradientTexture1D_oyu7o")
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_uupd5"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_srdlc"]
 vertex_color_use_as_albedo = true
 
-[sub_resource type="SphereMesh" id="SphereMesh_srdlc"]
-material = SubResource("StandardMaterial3D_uupd5")
-radius = 0.4
-height = 0.6
-radial_segments = 50
-rings = 10
+[sub_resource type="SphereMesh" id="SphereMesh_2a581"]
+material = SubResource("StandardMaterial3D_srdlc")
+radius = 0.1
+height = 0.2
+
+[sub_resource type="Curve" id="Curve_srdlc"]
+_data = [Vector2(0.008474581, 0.99107444), 0.0, 0.0, 0, 0, Vector2(0.529661, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_srdlc"]
+offsets = PackedFloat32Array(0, 0.50985223, 1)
+colors = PackedColorArray(0.9490196, 0, 0, 1, 0.98003477, 0.60837436, 0, 1, 1, 1, 0, 1)
 
 [node name="Spaceship" type="CharacterBody3D" unique_id=1566691958]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0)
@@ -63,7 +56,7 @@ shape = SubResource("ConvexPolygonShape3D_x7kw5")
 [node name="CharacterControllerComp" parent="." unique_id=1344369587 instance=ExtResource("3_w4wvo")]
 
 [node name="Camera" type="Camera3D" parent="." unique_id=1024637524]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, -4, 1.5)
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, -8.073614, 2.4463952)
 fov = 60.0
 
 [node name="Light" type="DirectionalLight3D" parent="." unique_id=1059433955]
@@ -72,12 +65,26 @@ transform = Transform3D(1, 0, 0, 0, 0.49999997, -0.86602545, 0, 0.86602545, 0.49
 [node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="." unique_id=1437171688]
 replication_config = SubResource("SceneReplicationConfig_x7kw5")
 
-[node name="GPUParticles3D" type="GPUParticles3D" parent="." unique_id=994983911]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00034487247, 0.17578213, 0.22078538)
-interp_to_end = 0.06
-process_material = SubResource("ParticleProcessMaterial_kroix")
-draw_pass_1 = SubResource("SphereMesh_srdlc")
-
 [node name="Mira" parent="." unique_id=1096533139 instance=ExtResource("6_srdlc")]
 
 [node name="player_shooting" parent="." unique_id=2143533939 instance=ExtResource("7_2a581")]
+
+[node name="EngineParticles" type="CPUParticles3D" parent="." unique_id=220528730]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.3021741, 0.24173926)
+amount = 100
+lifetime = 0.5
+mesh = SubResource("SphereMesh_2a581")
+emission_shape = 6
+emission_ring_axis = Vector3(0, 0, 1)
+emission_ring_height = 0.2
+emission_ring_radius = 0.2
+emission_ring_inner_radius = 0.0
+emission_ring_cone_angle = 90.0
+spread = 160.0
+gravity = Vector3(0, 0, 0)
+initial_velocity_min = 1.0
+initial_velocity_max = 1.0
+scale_amount_max = 2.0
+scale_amount_curve = SubResource("Curve_srdlc")
+color = Color(1, 1, 0, 1)
+color_ramp = SubResource("Gradient_srdlc")
