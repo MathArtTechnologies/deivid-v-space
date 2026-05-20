@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://f5aggkykyjuk" path="res://scenes/components/CharacterControllerComp.tscn" id="3_w4wvo"]
 [ext_resource type="PackedScene" uid="uid://bkjvj6i1h044e" path="res://scenes/components/mira.tscn" id="6_srdlc"]
 [ext_resource type="PackedScene" uid="uid://bv4w7cr2psbxc" path="res://scenes/components/player_shooting.tscn" id="7_2a581"]
+[ext_resource type="Script" uid="uid://d230r50gd1pfn" path="res://scenes/characters/canon.gd" id="8_2a581"]
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_x7kw5"]
 points = PackedVector3Array(1, 0.0068258713, 0.7928281, 0.33320284, 0.4945126, 0.19662654, -1, 0.0068258713, 0.7928281, 1, 0, 0.7928281, 1, 0.13608173, -0.33340025, -0.33339858, 0.4945126, 0.19662654, 0.33320284, 0.4945126, -0.33340025, -1, 0, 0.7928281, -1, 0.13608173, -0.33340025, 1, 0, -0.33340025, 0, 0.13608173, -1.346545, -0.33339858, 0.4945126, -0.33340025, 0, 0.2765204, -0.98321176, -1, 0, -0.33340025, 0, 0, -1.346545)
@@ -37,8 +38,6 @@ colors = PackedColorArray(0.9490196, 0, 0, 1, 0.98003477, 0.60837436, 0, 1, 1, 1
 
 [node name="Spaceship" type="CharacterBody3D" unique_id=1566691958]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0)
-collision_layer = 0
-collision_mask = 0
 script = ExtResource("1_ffpsi")
 
 [node name="Mesh" type="MeshInstance3D" parent="." unique_id=1245663333]
@@ -56,7 +55,7 @@ shape = SubResource("ConvexPolygonShape3D_x7kw5")
 [node name="CharacterControllerComp" parent="." unique_id=1344369587 instance=ExtResource("3_w4wvo")]
 
 [node name="Camera" type="Camera3D" parent="." unique_id=1024637524]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, -8.073614, 2.4463952)
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, -3.1059027, 1.2959886)
 fov = 60.0
 
 [node name="Light" type="DirectionalLight3D" parent="." unique_id=1059433955]
@@ -88,3 +87,10 @@ scale_amount_max = 2.0
 scale_amount_curve = SubResource("Curve_srdlc")
 color = Color(1, 1, 0, 1)
 color_ramp = SubResource("Gradient_srdlc")
+
+[node name="Canon" type="Node3D" parent="." unique_id=65258741]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.37189615, 0.7123748, 0.06139773)
+script = ExtResource("8_2a581")
+
+[node name="Canon2" type="Node3D" parent="." unique_id=297614403]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.3785631, 0.7123748, 0.06139773)
