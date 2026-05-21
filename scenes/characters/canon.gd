@@ -13,5 +13,6 @@ func _process(_delta: float) -> void:
 		var laser = laser_es.instantiate()
 		laser.position = global_position
 		laser.transform.basis = get_parent().transform.basis
+		laser.speed += abs(get_parent().velocity.dot(Vector3(1,1,1)))
 		laser.scale = Vector3(0.01,0.01,0.01)
 		get_parent().get_parent().add_child(laser)

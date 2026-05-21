@@ -94,3 +94,4 @@ script = ExtResource("8_2a581")
 
 [node name="Canon2" type="Node3D" parent="." unique_id=297614403]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.3785631, 0.7123748, 0.06139773)
+script = ExtResource("8_2a581")

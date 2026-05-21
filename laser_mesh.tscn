@@ -12,7 +12,7 @@ material = SubResource("ORMMaterial3D_websc")
 transform = Transform3D(0.001, 0, 0, 0, -4.3711387e-10, -0.001, 0, 0.01, -4.371139e-11, 0, 0, 0)
 mesh = SubResource("CylinderMesh_a13bw")
 script = ExtResource("1_qkbfh")
-speed = 750
+speed = 1500
 
 [node name="Timer" type="Timer" parent="." unique_id=27260755]
 wait_time = 2.0
