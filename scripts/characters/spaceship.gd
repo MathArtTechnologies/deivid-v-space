@@ -46,7 +46,7 @@ func _physics_process(delta: float) -> void:
 	_set_engine_is_trusting(move_dir != Vector3.ZERO or rotation != Vector3.ZERO)
 	
 	self.character_velocity_comp.direction = move_dir
-	self.character_rotation_component.rotation = rotation
+	#self.character_rotation_component.rotation = rotation
 
 func _set_engine_is_trusting(is_trusting: bool) -> void:
 	var particles = $EngineParticles

@@ -13,3 +13,6 @@ func _physics_process(delta: float) -> void:
 	self.entity.rotate(self.entity.basis.z.normalized(), self.rotation.z * delta * speed)
 	
 	self.entity.move_and_slide()
+
+func _get_class_name() -> StringName:
+	return "CharacterRotationComp"
