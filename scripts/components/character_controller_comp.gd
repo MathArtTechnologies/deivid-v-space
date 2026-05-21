@@ -88,8 +88,15 @@ func _process(_delta: float) -> void:
 		
 		var roll_speed = 3
 		
-		if Input.is_action_pressed("roll_left"):
-			self.entity.rotate(self.entity.basis.y, -1 * _delta * roll_speed)
-		if Input.is_action_pressed("roll_right"):
-			self.entity.rotate(self.entity.basis.y, 1 * _delta * roll_speed)
+		#if Input.is_action_pressed("roll_left"):
+			#self.entity.rotate(self.entity.basis.y, -1 * _delta * roll_speed)
+		#if Input.is_action_pressed("roll_right"):
+			#self.entity.rotate(self.entity.basis.y, 1 * _delta * roll_speed)
 		
+		# un-roll... ing ("estabilizar" esta wea)
+		if not Input.is_action_pressed("roll_left") and not Input.is_action_pressed("roll_right"):
+			var forward = self.entity.basis.y
+			var target_up = (Vector3.UP - Vector3.UP.dot(forward) * forward).normalized()
+			if target_up.length_squared() > 0.001:
+				var roll_error = self.entity.basis.z.signed_angle_to(target_up, forward)
+				self.entity.rotate(forward, roll_error * _delta * roll_speed)
