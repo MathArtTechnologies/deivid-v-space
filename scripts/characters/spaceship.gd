@@ -45,8 +45,17 @@ func _physics_process(delta: float) -> void:
 	
 	_set_engine_is_trusting(move_dir != Vector3.ZERO or rotation != Vector3.ZERO)
 	
+	if (Input.is_action_pressed("boost")):
+		self.character_velocity_comp.speed = self.movement_speed * 1.2
+		#self.camera.position.y = -10
+		self.camera.fov = 65
+	else:
+		self.character_velocity_comp.speed = self.movement_speed
+		#self.camera.position.y = -8
+		self.camera.fov = 60
+	
 	self.character_velocity_comp.direction = move_dir
-	self.character_rotation_component.rotation = rotation
+	#self.character_rotation_component.rotation = rotation
 
 func _set_engine_is_trusting(is_trusting: bool) -> void:
 	var particles = $EngineParticles

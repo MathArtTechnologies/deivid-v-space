@@ -1,11 +1,11 @@
 [gd_scene format=3 uid="uid://dxkypaiotqx0o"]
 
 [ext_resource type="Script" uid="uid://du63oekpchia6" path="res://scripts/sand_box/movement_test/game.gd" id="1_xloyl"]
+[ext_resource type="Texture2D" uid="uid://ctx50nnfea4g" path="res://panoramas/purple_nebula.png" id="2_lgdfk"]
 [ext_resource type="Script" uid="uid://pouf1yivbscj" path="res://scripts/sand_box/movement_test/display.gd" id="2_npv15"]
-[ext_resource type="Texture2D" uid="uid://b2yw3qmmsieps" path="res://panoramas/green_nebula.png" id="3_lgdfk"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_13c0c"]
-panorama = ExtResource("3_lgdfk")
+panorama = ExtResource("2_lgdfk")
 
 [sub_resource type="Sky" id="Sky_xloyl"]
 sky_material = SubResource("PanoramaSkyMaterial_13c0c")
