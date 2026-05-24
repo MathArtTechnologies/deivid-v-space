@@ -24,7 +24,7 @@ func set_pause_menu_visible(visible_: bool) -> void:
 	self._set_cursor_visible(visible_)
 
 func _set_cursor_visible(visible_ : bool) -> void:
-	visible_ = true
+	#visible_ = true
 	
 	if not visible_:
 		Input.mouse_mode = Input.MOUSE_MODE_CONFINED_HIDDEN
