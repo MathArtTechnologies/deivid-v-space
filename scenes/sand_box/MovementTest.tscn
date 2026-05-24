@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://ctx50nnfea4g" path="res://panoramas/purple_nebula.png" id="2_lgdfk"]
 [ext_resource type="Script" uid="uid://pouf1yivbscj" path="res://scripts/sand_box/movement_test/display.gd" id="2_npv15"]
 [ext_resource type="PackedScene" uid="uid://ck5f61xk4fdf7" path="res://scenes/props/SpaceStation.tscn" id="4_13c0c"]
+[ext_resource type="PackedScene" uid="uid://japxe55hveli" path="res://scenes/props/TargetBroken.tscn" id="5_xloyl"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_13c0c"]
 panorama = ExtResource("2_lgdfk")
@@ -147,6 +148,26 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 64.51304, 14.831875, -11.3368
 [node name="MultiplayerSpawner" type="MultiplayerSpawner" parent="." unique_id=554921080]
 _spawnable_scenes = PackedStringArray("uid://cp0lfbi17x0r8")
 spawn_path = NodePath("..")
+
+[node name="Targets" type="Node" parent="." unique_id=1335015128]
+
+[node name="Target1" parent="Targets" unique_id=271637056 instance=ExtResource("5_xloyl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.171, 0, -60)
+
+[node name="Target2" parent="Targets" unique_id=895632245 instance=ExtResource("5_xloyl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 49.416, 0, -60)
+
+[node name="Target3" parent="Targets" unique_id=489538523 instance=ExtResource("5_xloyl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.123, 33.722, -60)
+
+[node name="Target4" parent="Targets" unique_id=1887875127 instance=ExtResource("5_xloyl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.174, 16.978, -60)
+
+[node name="Target5" parent="Targets" unique_id=1691156652 instance=ExtResource("5_xloyl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 44.348, 33.956, -60)
+
+[node name="Target6" parent="Targets" unique_id=317899572 instance=ExtResource("5_xloyl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 56.2162, 33.722, -60)
 
 [node name="asteroide" type="RigidBody3D" parent="." unique_id=112359311]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -19.29102, 100.422264)

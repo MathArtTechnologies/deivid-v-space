@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://bgtffgtwv7tu8"]
+
+[ext_resource type="Script" uid="uid://b6qcxphes76e" path="res://scripts/components/breakable_prop_comp.gd" id="1_lwftb"]
+
+[node name="BreakablePropComp" type="Node" unique_id=1743652928]
+script = ExtResource("1_lwftb")
