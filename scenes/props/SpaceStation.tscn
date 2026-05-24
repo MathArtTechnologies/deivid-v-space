@@ -26,16 +26,21 @@ script = ExtResource("1_tmxeb")
 mesh = ExtResource("1_7dh5q")
 
 [node name="CollisionShape3D5" type="CollisionShape3D" parent="." unique_id=733527227]
+visible = false
 shape = SubResource("ConvexPolygonShape3D_7dh5q")
 
 [node name="CollisionShape3D4" type="CollisionShape3D" parent="." unique_id=1653214071]
+visible = false
 shape = SubResource("ConvexPolygonShape3D_tmxeb")
 
 [node name="CollisionShape3D3" type="CollisionShape3D" parent="." unique_id=1065282562]
+visible = false
 shape = SubResource("ConvexPolygonShape3D_wv813")
 
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="." unique_id=1194894802]
+visible = false
 shape = SubResource("ConvexPolygonShape3D_k4pyx")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=2132741729]
+visible = false
 shape = SubResource("ConvexPolygonShape3D_vmoyr")

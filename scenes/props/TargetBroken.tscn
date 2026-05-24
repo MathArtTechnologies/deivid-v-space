@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://d0tj4ref7ekof" path="res://scripts/props/target.gd" id="1_o3p2b"]
 [ext_resource type="PackedScene" uid="uid://bgtffgtwv7tu8" path="res://scenes/components/BreakablePropComp.tscn" id="2_7slne"]
+[ext_resource type="Material" uid="uid://cattmy6ir8kbk" path="res://materials/magenta_plain.tres" id="2_jylgo"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dw46b"]
 
@@ -369,6 +370,7 @@ gravity_scale = 0.0
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.04900069, 0.7080436, -0.02662948)
 mesh = SubResource("ArrayMesh_exmq1")
 skeleton = NodePath("")
+surface_material_override/0 = ExtResource("2_jylgo")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Part0" unique_id=986612234]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.04900069, 0.7080436, -0.02662948)
@@ -381,6 +383,7 @@ gravity_scale = 0.0
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.44164106, 0.24777737, 0.61990875)
 mesh = SubResource("ArrayMesh_i1srs")
 skeleton = NodePath("")
+surface_material_override/0 = ExtResource("2_jylgo")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Part1" unique_id=1642292378]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.44164106, 0.24777737, 0.61990875)
@@ -393,6 +396,7 @@ gravity_scale = 0.0
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.37815258, -0.056972146, 0.369339)
 mesh = SubResource("ArrayMesh_ofoi4")
 skeleton = NodePath("")
+surface_material_override/0 = ExtResource("2_jylgo")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Part2" unique_id=63016949]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.37815258, -0.056972146, 0.369339)
@@ -405,6 +409,7 @@ gravity_scale = 0.0
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.12811306, -0.1626108, -0.4843331)
 mesh = SubResource("ArrayMesh_2w85w")
 skeleton = NodePath("")
+surface_material_override/0 = ExtResource("2_jylgo")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Part3" unique_id=1929007976]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.12811306, -0.1626108, -0.4843331)
@@ -417,6 +422,7 @@ gravity_scale = 0.0
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.35424644, -0.38471118, 0.29743803)
 mesh = SubResource("ArrayMesh_coe3q")
 skeleton = NodePath("")
+surface_material_override/0 = ExtResource("2_jylgo")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Part4" unique_id=2042956781]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.35424644, -0.38471118, 0.29743803)
@@ -429,6 +435,7 @@ gravity_scale = 0.0
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6224257, 0.3870743, 0.015669852)
 mesh = SubResource("ArrayMesh_2kn6l")
 skeleton = NodePath("")
+surface_material_override/0 = ExtResource("2_jylgo")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Part5" unique_id=2054782361]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6224257, 0.3870743, 0.015669852)
@@ -441,6 +448,7 @@ gravity_scale = 0.0
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.56334955, 0.13792142, -0.3947908)
 mesh = SubResource("ArrayMesh_isuq7")
 skeleton = NodePath("")
+surface_material_override/0 = ExtResource("2_jylgo")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Part6" unique_id=958569403]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.56334955, 0.13792142, -0.3947908)
@@ -453,6 +461,7 @@ gravity_scale = 0.0
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.56248474, 0.021957869, -0.27809164)
 mesh = SubResource("ArrayMesh_qj2yg")
 skeleton = NodePath("")
+surface_material_override/0 = ExtResource("2_jylgo")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Part7" unique_id=1227755938]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.56248474, 0.021957869, -0.27809164)
@@ -465,6 +474,7 @@ gravity_scale = 0.0
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.097064, 0.46653232, 0.4451222)
 mesh = SubResource("ArrayMesh_n8s55")
 skeleton = NodePath("")
+surface_material_override/0 = ExtResource("2_jylgo")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Part8" unique_id=273248180]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.097064, 0.46653232, 0.4451222)
@@ -477,9 +487,14 @@ gravity_scale = 0.0
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.27188885, 0.6286436, -0.27065307)
 mesh = SubResource("ArrayMesh_ugu6m")
 skeleton = NodePath("")
+surface_material_override/0 = ExtResource("2_jylgo")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Part9" unique_id=1357629359]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.27188885, 0.6286436, -0.27065307)
 shape = SubResource("ConvexPolygonShape3D_trljt")
 
 [node name="BreakablePropComp" parent="." unique_id=1743652928 instance=ExtResource("2_7slne")]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=612670334]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4.920657)
+visible = false
