@@ -143,7 +143,7 @@ transform = Transform3D(0.15963995, 0, 0.9871753, 0, 1, 0, -0.9871753, 0, 0.1596
 mesh = SubResource("BoxMesh_7ud5i")
 
 [node name="SpaceStation" parent="Environment" unique_id=1269542049 instance=ExtResource("4_13c0c")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 64.51304, 14.831875, -11.336834)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 64, 14, -11)
 
 [node name="MultiplayerSpawner" type="MultiplayerSpawner" parent="." unique_id=554921080]
 _spawnable_scenes = PackedStringArray("uid://cp0lfbi17x0r8")
@@ -152,22 +152,37 @@ spawn_path = NodePath("..")
 [node name="Targets" type="Node" parent="." unique_id=1335015128]
 
 [node name="Target1" parent="Targets" unique_id=271637056 instance=ExtResource("5_xloyl")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.171, 0, -60)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 64, 14, -44.077263)
 
 [node name="Target2" parent="Targets" unique_id=895632245 instance=ExtResource("5_xloyl")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 49.416, 0, -60)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 64, 14, 10.722836)
 
 [node name="Target3" parent="Targets" unique_id=489538523 instance=ExtResource("5_xloyl")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.123, 33.722, -60)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 64, 41.74173, -11)
 
 [node name="Target4" parent="Targets" unique_id=1887875127 instance=ExtResource("5_xloyl")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.174, 16.978, -60)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 64, -22.006062, -11)
 
 [node name="Target5" parent="Targets" unique_id=1691156652 instance=ExtResource("5_xloyl")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 44.348, 33.956, -60)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 38.07009, 14, -51.895744)
 
 [node name="Target6" parent="Targets" unique_id=317899572 instance=ExtResource("5_xloyl")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 56.2162, 33.722, -60)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 39.91349, 14, 11.470013)
+
+[node name="Target7" parent="Targets" unique_id=2137516763 instance=ExtResource("5_xloyl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 81.93715, 14, 7.0301895)
+
+[node name="Target8" parent="Targets" unique_id=812564504 instance=ExtResource("5_xloyl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 41.743298, 14, -25.989464)
+
+[node name="Target9" parent="Targets" unique_id=492258965 instance=ExtResource("5_xloyl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 85.91795, 14, -21.390663)
+
+[node name="Target10" parent="Targets" unique_id=1624601679 instance=ExtResource("5_xloyl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 64, 19.040237, -30.23954)
+
+[node name="Target11" parent="Targets" unique_id=1698672570 instance=ExtResource("5_xloyl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 64, -13.818192, 6.925947)
 
 [node name="asteroide" type="RigidBody3D" parent="." unique_id=112359311]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -19.29102, 100.422264)
