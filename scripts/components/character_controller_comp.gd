@@ -70,9 +70,17 @@ func _process(_delta: float) -> void:
 		
 		var step = cursor_toc * _delta * sensitivity
 		
-		print("step: ", step)
+		# work the floating points, snapping to the center prevents locking in continuous rotation
 		
-		self.viewport.warp_mouse(cursor_pos + step)
+		if cursor_toc.x != 0.0:
+			step.x = sign(cursor_toc.x) * max(abs(step.x), 1.0)
+		if cursor_toc.y != 0.0:
+			step.y = sign(cursor_toc.y) * max(abs(step.y), 1.0)
+		
+		if cursor_toc.length() < 0.5:
+			self.viewport.warp_mouse(screen_cen)
+		else:
+			self.viewport.warp_mouse(cursor_pos + step)
 		
 		# yaw... ing
 		
@@ -99,6 +107,7 @@ func _process(_delta: float) -> void:
 			self.stabilize = !self.stabilize
 		
 		# un-roll... ing ("estabilizar" esta wea)
+		
 		if self.stabilize:
 			if not Input.is_action_pressed("roll_left") and not Input.is_action_pressed("roll_right"):
 				var forward = self.entity.basis.y
