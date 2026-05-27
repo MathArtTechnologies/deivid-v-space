@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://bkjvj6i1h044e"]
 
 [ext_resource type="Script" uid="uid://btv3aownco8hs" path="res://scripts/components/mira.gd" id="1_jftto"]
+[ext_resource type="Texture2D" uid="uid://cc02ieftn00mi" path="res://cursor_crosshair.png" id="2_vtw4c"]
 
 [node name="Mira" type="Control" unique_id=1096533139]
 layout_mode = 3
@@ -22,3 +23,7 @@ grow_vertical = 2
 script = ExtResource("1_jftto")
 
 [node name="Line2D" type="Line2D" parent="CenterContainer" unique_id=1209269114]
+texture = ExtResource("2_vtw4c")
+
+[node name="CursorCrosshair" type="Sprite2D" parent="CenterContainer/Line2D" unique_id=179208346]
+texture = ExtResource("2_vtw4c")

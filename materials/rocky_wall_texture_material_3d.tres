@@ -1,0 +1,14 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://cieurthlj1o8n"]
+
+[ext_resource type="Texture2D" uid="uid://dho2ehydlux71" path="res://textures/rock_wall_02_diff_4k.png" id="1_qwewa"]
+[ext_resource type="Texture2D" uid="uid://bkphihp8ow2j4" path="res://textures/rock_wall_02_rough_4k.png" id="2_2y0os"]
+
+[sub_resource type="CameraTexture" id="CameraTexture_5wtfl"]
+
+[resource]
+albedo_texture = ExtResource("1_qwewa")
+roughness_texture = ExtResource("2_2y0os")
+normal_enabled = true
+normal_texture = SubResource("CameraTexture_5wtfl")
+uv1_triplanar_sharpness = 4.287094
+grow_amount = 0.254
