@@ -39,5 +39,3 @@ func disparar() -> void:
 	if collider is RigidBody3D:
 		if collider.get_parent() is Target:
 			collider.get_parent().breakable_prop_comp.do_break()
-	
-	
