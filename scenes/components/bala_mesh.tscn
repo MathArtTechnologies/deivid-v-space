@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bnugfdgruyvtg"]
 
-[ext_resource type="Script" uid="uid://bs3pycgdkvaxv" path="res://laser_mesh.gd" id="1_qkbfh"]
+[ext_resource type="Script" uid="uid://bs3pycgdkvaxv" path="res://scripts/components/bala_mesh.gd" id="1_1sxpd"]
 
 [sub_resource type="ORMMaterial3D" id="ORMMaterial3D_websc"]
 albedo_color = Color(0.7944548, 0, 0, 1)
@@ -8,11 +8,11 @@ albedo_color = Color(0.7944548, 0, 0, 1)
 [sub_resource type="CylinderMesh" id="CylinderMesh_a13bw"]
 material = SubResource("ORMMaterial3D_websc")
 
-[node name="LaserMesh" type="MeshInstance3D" unique_id=1086716998]
+[node name="BalaMesh" type="MeshInstance3D" unique_id=1086716998]
 transform = Transform3D(0.001, 0, 0, 0, -4.3711387e-10, -0.001, 0, 0.01, -4.371139e-11, 0, 0, 0)
 mesh = SubResource("CylinderMesh_a13bw")
-script = ExtResource("1_qkbfh")
-speed = 1500
+script = ExtResource("1_1sxpd")
+speed = 5000
 
 [node name="Timer" type="Timer" parent="." unique_id=27260755]
 wait_time = 2.0
