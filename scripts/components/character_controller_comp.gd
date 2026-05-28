@@ -86,13 +86,13 @@ func _process(_delta: float) -> void:
 		
 		var ca_x = (screen_siz.x / 2) / tan(deg_to_rad(self.camera.fov / 2))
 		var yaw_angle = atan(step.x / ca_x) 
-		self.entity.rotate(self.entity.basis.z, yaw_angle)
+		self.entity.rotate(self.entity.basis.z.normalized(), yaw_angle)
 		
 		# pitch... ing
 		
 		var ca_y = (screen_siz.y / 2) / tan(deg_to_rad(self.camera.fov / 2))
 		var pitch_angle = atan(step.y / ca_y)
-		self.entity.rotate(self.entity.basis.x, pitch_angle)
+		self.entity.rotate(self.entity.basis.x.normalized(), pitch_angle)
 		
 		# roll... ing
 		
@@ -114,4 +114,4 @@ func _process(_delta: float) -> void:
 				var target_up = (Vector3.UP - Vector3.UP.dot(forward) * forward).normalized()
 				if target_up.length_squared() > 0.001:
 					var roll_error = self.entity.basis.z.signed_angle_to(target_up, forward)
-					self.entity.rotate(forward, roll_error * _delta * roll_speed)
+					self.entity.rotate(forward.normalized(), roll_error * _delta * roll_speed)
