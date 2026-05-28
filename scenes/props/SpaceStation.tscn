@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://ck5f61xk4fdf7"]
 
-[ext_resource type="ArrayMesh" uid="uid://ba7vdjd1lst2r" path="res://models/space stationWIP.obj" id="1_7dh5q"]
 [ext_resource type="Script" uid="uid://cxulrg03dnes1" path="res://scripts/props/space_station.gd" id="1_tmxeb"]
+[ext_resource type="ArrayMesh" uid="uid://ci00u6uonl50x" path="res://models/space station wip.obj" id="2_tmxeb"]
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_7dh5q"]
 points = PackedVector3Array(1.6219157, 2.0439556, 0.35509107, -1.3744143, 1.6692677, -0.7685327, -0.6253318, 1.6692677, -1.5176152, -0.99987316, 6.9128456, -0.39399144, -0.6253318, 1.6692677, 1.4787148, 0.8728332, 6.9128456, -0.7685327, 0.8728332, 6.9128456, 0.7296323, 0.8728332, 1.6692677, -1.5176152, -0.99987316, 6.9128456, 0.35509107, 0.8728332, 1.6692677, 1.4787148, -1.3744143, 2.0439556, 1.1041737, -0.25079057, 5.414094, 1.1041737, 1.6219157, 1.6692677, -0.39399144, -0.25079057, 5.0399194, -1.143074, -1.3744143, 3.1680193, -0.7685327, -0.6253318, 6.9128456, -0.7685327, -0.6253318, 6.9128456, 0.7296323, -0.6253318, 2.7938447, 1.4787148, 1.2473745, 2.7938447, 1.1041737, 0.12375069, 2.7938447, -1.5176152, 1.2473745, 2.4186435, -1.143074, 0.49829194, 2.7938447, 1.4787148, -1.3744143, 3.5427074, 0.35509107, -0.6253318, 2.4186435, -1.5176152, -0.99987316, 3.5427074, -1.143074, -1.3744143, 1.6692677, 1.1041737, -0.99987316, 3.917395, 1.1041737, 1.6219157, 2.0439556, -0.39399144, 1.2473745, 1.6692677, 1.1041737, 0.8728332, 2.0439556, -1.5176152, 0.49829194, 5.414094, 1.1041737, 0.8728332, 2.0439556, 1.4787148)
@@ -23,7 +23,8 @@ gravity_scale = 0.0
 script = ExtResource("1_tmxeb")
 
 [node name="SpaceStationWip" type="MeshInstance3D" parent="." unique_id=1778721959]
-mesh = ExtResource("1_7dh5q")
+transform = Transform3D(-1, -8.742278e-08, 0, 8.742278e-08, -1, 0, 0, 0, 1, 0, 0, 0)
+mesh = ExtResource("2_tmxeb")
 
 [node name="CollisionShape3D5" type="CollisionShape3D" parent="." unique_id=733527227]
 visible = false
