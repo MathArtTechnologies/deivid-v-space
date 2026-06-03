@@ -19,6 +19,9 @@ func _process(_delta: float) -> void:
 		disparar()
 
 func disparar() -> void:
+	if not is_multiplayer_authority():
+		return
+	
 	var space_state : PhysicsDirectSpaceState3D = camara_jug.get_world_3d().direct_space_state
 	var ray_dir : Vector3 = -camara_jug.global_basis.z
 	var ray_ini : Vector3 = camara_jug.global_position
@@ -38,4 +41,5 @@ func disparar() -> void:
 	
 	if collider is RigidBody3D:
 		if collider.get_parent() is Target:
-			collider.get_parent().breakable_prop_comp.do_break()
+			#collider.get_parent().breakable_prop_comp.do_break()
+			collider.get_parent().breakable_prop_comp.request_break()
