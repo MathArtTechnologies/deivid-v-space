@@ -62,6 +62,12 @@ layout_mode = 2
 theme_override_constants/separation = 8
 alignment = 1
 
+[node name="IP" type="TextEdit" parent="Display/NetworkControls/VBoxContainer" unique_id=513711295]
+custom_minimum_size = Vector2(0, 35)
+layout_mode = 2
+theme_override_font_sizes/font_size = 15
+placeholder_text = "127.0.0.1"
+
 [node name="Join" type="Button" parent="Display/NetworkControls/VBoxContainer" unique_id=870758464]
 layout_mode = 2
 text = "Join"
@@ -78,7 +84,9 @@ offset_left = 5.0
 offset_right = 5.0
 offset_bottom = 23.0
 grow_horizontal = 2
-text = "peer_id: 1"
+text = "peer_id: 1
+host: 127.0.0.1
+port: 3435"
 
 [node name="Environment" type="Node" parent="." unique_id=2062864394]
 

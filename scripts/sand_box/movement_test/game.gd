@@ -28,6 +28,7 @@ func _on_host_pressed() -> void:
 	self.display.set_lobby_menu_visible(false)
 
 func _on_join_pressed() -> void:
+	self.address = self.display.get_host_ip()
 	self.peer.create_client(self.address, self.port)
 	multiplayer.multiplayer_peer = self.peer
 	self.display.set_lobby_menu_visible(false)
@@ -37,6 +38,7 @@ func _on_peer_connected(peer_id: int) -> void:
 
 func _on_connected_to_server() -> void:
 	self._spawn_player(multiplayer.get_unique_id())
+	self.display.set_client_info(multiplayer.get_unique_id(), self.address, self.port)
 
 func _spawn_player(peer_id: int) -> void:
 	var scene = preload("res://scenes/characters/Spaceship.tscn")
