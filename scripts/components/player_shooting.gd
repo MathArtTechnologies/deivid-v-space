@@ -5,6 +5,8 @@ extends Node3D
 @onready var camara_jug = $"../Camera"
 
 var ind_arma : int = 0
+var objetivo : Dictionary
+var interseccion : Vector3
 
 @onready var sel_arma : shoot_type = armas.disparos[ind_arma]
 
@@ -26,7 +28,9 @@ func disparar() -> void:
 	
 	var rayo := PhysicsRayQueryParameters3D.create(ray_ini,ray_fin)
 	rayo.collide_with_bodies = true
-	var objetivo : Dictionary = space_state.intersect_ray(rayo)
+	objetivo = space_state.intersect_ray(rayo)
+	if objetivo != {}:
+		interseccion = objetivo["position"]
 	print(ray_fin)
 	print(objetivo)
 	
