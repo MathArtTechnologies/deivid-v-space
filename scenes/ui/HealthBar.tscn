@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://boh23773u5jmy"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_vhms7"]
+viewport_path = NodePath("SubViewport")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vhms7"]
+bg_color = Color(1, 0.6, 0.6, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5fhnc"]
+bg_color = Color(0.6, 1, 0.16470589, 1)
+
+[node name="HealthBar" type="Node3D" unique_id=1484711869]
+
+[node name="Sprite3D" type="Sprite3D" parent="." unique_id=378117141]
+billboard = 1
+texture = SubResource("ViewportTexture_vhms7")
+
+[node name="SubViewport" type="SubViewport" parent="." unique_id=1475019688]
+size = Vector2i(400, 25)
+
+[node name="ProgressBar" type="ProgressBar" parent="SubViewport" unique_id=1302688492]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 4
+theme_override_styles/background = SubResource("StyleBoxFlat_vhms7")
+theme_override_styles/fill = SubResource("StyleBoxFlat_5fhnc")
+value = 40.0

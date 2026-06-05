@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://bkjvj6i1h044e" path="res://scenes/components/mira.tscn" id="6_srdlc"]
 [ext_resource type="PackedScene" uid="uid://bv4w7cr2psbxc" path="res://scenes/components/player_shooting.tscn" id="7_2a581"]
 [ext_resource type="Script" uid="uid://d230r50gd1pfn" path="res://scripts/components/canon.gd" id="8_2a581"]
+[ext_resource type="PackedScene" uid="uid://boh23773u5jmy" path="res://scenes/ui/HealthBar.tscn" id="9_jtq3w"]
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_x7kw5"]
 points = PackedVector3Array(1, 0.0068258713, 0.7928281, 0.33320284, 0.4945126, 0.19662654, -1, 0.0068258713, 0.7928281, 1, 0, 0.7928281, 1, 0.13608173, -0.33340025, -0.33339858, 0.4945126, 0.19662654, 0.33320284, 0.4945126, -0.33340025, -1, 0, 0.7928281, -1, 0.13608173, -0.33340025, 1, 0, -0.33340025, 0, 0.13608173, -1.346545, -0.33339858, 0.4945126, -0.33340025, 0, 0.2765204, -0.98321176, -1, 0, -0.33340025, 0, 0, -1.346545)
@@ -118,3 +119,6 @@ amount = 50
 lifetime = 5.0
 process_material = SubResource("ParticleProcessMaterial_2a581")
 draw_pass_1 = SubResource("SphereMesh_jtq3w")
+
+[node name="HealthBar" parent="." unique_id=1484711869 instance=ExtResource("9_jtq3w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -4.560273e-08, 1.0432688)
