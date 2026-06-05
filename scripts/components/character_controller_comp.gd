@@ -63,10 +63,10 @@ func _process(_delta: float) -> void:
 		var cursor_foc = cursor_pos - screen_cen
 		var cursor_toc = screen_cen - cursor_pos 
 		
-		print("cursor_position:    ", cursor_pos)
-		print("screen_size:        ", screen_siz)
-		print("cursor_from_center: ", cursor_foc)
-		print("cursor_to_center:   ", cursor_toc)
+		#print("cursor_position:    ", cursor_pos)
+		#print("screen_size:        ", screen_siz)
+		#print("cursor_from_center: ", cursor_foc)
+		#print("cursor_to_center:   ", cursor_toc)
 		
 		var step = cursor_toc * _delta * sensitivity
 		

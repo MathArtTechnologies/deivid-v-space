@@ -40,10 +40,19 @@ func disparar() -> void:
 	if len(objetivo) == 0:
 		return
 	
-	# not sure if this is the right way to do this (probably not), please fix if needed ~ wissens
 	var collider = objetivo['collider']
+	
+	_handle_collisio(collider)
+
+
+func _handle_collisio(collider) -> void:
 	
 	if collider is RigidBody3D:
 		if collider.get_parent() is Target:
 			#collider.get_parent().breakable_prop_comp.do_break()
 			collider.get_parent().breakable_prop_comp.request_break()
+		
+		return
+	
+	if collider is Spaceship:
+		collider.health_component.take_damage(sel_arma.Daño)

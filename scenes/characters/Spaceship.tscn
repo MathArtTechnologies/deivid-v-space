@@ -5,6 +5,7 @@
 [ext_resource type="ArrayMesh" uid="uid://df0eyt7x1y6un" path="res://models/spaceship.obj" id="2_kroix"]
 [ext_resource type="PackedScene" uid="uid://brsfw5qan0sh3" path="res://scenes/components/CharacterRotationComp.tscn" id="3_hyrv2"]
 [ext_resource type="PackedScene" uid="uid://f5aggkykyjuk" path="res://scenes/components/CharacterControllerComp.tscn" id="3_w4wvo"]
+[ext_resource type="PackedScene" uid="uid://dexist5ole1l6" path="res://scenes/components/HealthComponent.tscn" id="6_7gkjs"]
 [ext_resource type="PackedScene" uid="uid://bkjvj6i1h044e" path="res://scenes/components/mira.tscn" id="6_srdlc"]
 [ext_resource type="PackedScene" uid="uid://bv4w7cr2psbxc" path="res://scenes/components/player_shooting.tscn" id="7_2a581"]
 [ext_resource type="Script" uid="uid://d230r50gd1pfn" path="res://scripts/components/canon.gd" id="8_2a581"]
@@ -54,7 +55,6 @@ height = 0.08
 
 [node name="Spaceship" type="CharacterBody3D" unique_id=1566691958]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0)
-collision_layer = 0
 collision_mask = 0
 script = ExtResource("1_ffpsi")
 
@@ -71,6 +71,11 @@ shape = SubResource("ConvexPolygonShape3D_x7kw5")
 [node name="CharacterRotationComp" parent="." unique_id=1200959252 instance=ExtResource("3_hyrv2")]
 
 [node name="CharacterControllerComp" parent="." unique_id=1344369587 instance=ExtResource("3_w4wvo")]
+
+[node name="HealthComponent" parent="." unique_id=406114498 instance=ExtResource("6_7gkjs")]
+
+[node name="HealthBar" parent="." unique_id=1484711869 instance=ExtResource("9_jtq3w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -4.560273e-08, 1.0432688)
 
 [node name="Camera" type="Camera3D" parent="." unique_id=1024637524]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, -8, 2.5)
@@ -119,6 +124,3 @@ amount = 50
 lifetime = 5.0
 process_material = SubResource("ParticleProcessMaterial_2a581")
 draw_pass_1 = SubResource("SphereMesh_jtq3w")
-
-[node name="HealthBar" parent="." unique_id=1484711869 instance=ExtResource("9_jtq3w")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -4.560273e-08, 1.0432688)
