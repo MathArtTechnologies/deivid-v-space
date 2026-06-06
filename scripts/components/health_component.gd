@@ -7,6 +7,10 @@ signal on_die
 signal on_health_changed(new_value : int)
 signal on_max_health_changed(new_value : int)
 
+func _ready() -> void:
+	# health is always dictated by the server, the one and only source of truth ~ wissens
+	set_multiplayer_authority(1)
+
 func set_max_health(value : int) -> void:
 	max_health = value
 	on_max_health_changed.emit(max_health)
@@ -30,3 +34,15 @@ func _get_class_name() -> StringName:
 
 func take_damage(damage : int) -> void:
 	health = health - damage
+
+@rpc("any_peer", "reliable")
+func request_take_damage(damage : int) -> void:
+	if not multiplayer.is_server():
+		request_take_damage.rpc_id(1, damage)
+		return
+	
+	apply_take_damage.rpc(damage)
+
+@rpc("authority", "call_local", "reliable")
+func apply_take_damage(damage : int) -> void:
+	take_damage(damage)

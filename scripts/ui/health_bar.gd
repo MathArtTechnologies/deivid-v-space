@@ -3,8 +3,8 @@ class_name HealthBar
 
 @onready var progress_bar : ProgressBar = $SubViewport/ProgressBar
 
-var max_health: int = 100: set = set_max_health, get = get_max_health
-var health: int = 100: set = set_health, get = get_health
+@export var max_health: int = 100: set = set_max_health, get = get_max_health
+@export var health: int = 100: set = set_health, get = get_health
 
 func set_max_health(value : int) -> void:
 	max_health = value

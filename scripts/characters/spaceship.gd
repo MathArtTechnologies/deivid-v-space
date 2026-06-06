@@ -33,8 +33,8 @@ func _ready() -> void:
 	self.health_component.on_health_changed.connect(_on_health_changed)
 	self.health_component.on_max_health_changed.connect(_on_max_health_changed)
 	
-	self.health_component.max_health = 100
-	self.health_component.health = 100
+	self.health_component.max_health = 100 * 10 
+	self.health_component.health = self.health_component.max_health
 	
 	if is_multiplayer_authority():
 		self.camera.current = true

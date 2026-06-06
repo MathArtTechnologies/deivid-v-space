@@ -55,4 +55,4 @@ func _handle_collisio(collider) -> void:
 		return
 	
 	if collider is Spaceship:
-		collider.health_component.take_damage(sel_arma.Daño)
+		collider.health_component.request_take_damage(sel_arma.Daño)
