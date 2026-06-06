@@ -16,6 +16,12 @@ sky_material = SubResource("PanoramaSkyMaterial_13c0c")
 background_mode = 2
 sky = SubResource("Sky_xloyl")
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xloyl"]
+bg_color = Color(1, 0.29411766, 0.20784314, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5iirr"]
+bg_color = Color(0.6, 1, 0.16470589, 1)
+
 [sub_resource type="BoxMesh" id="BoxMesh_7ud5i"]
 size = Vector3(5, 5, 5)
 
@@ -88,66 +94,121 @@ text = "peer_id: 1
 host: 127.0.0.1
 port: 3435"
 
+[node name="HUD" type="Control" parent="Display" unique_id=423423118]
+visible = false
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 25.0
+offset_top = -81.0
+offset_right = 345.0
+offset_bottom = -27.0
+grow_vertical = 0
+
+[node name="HealthBar" type="ProgressBar" parent="Display/HUD" unique_id=275066751]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.019000001
+anchor_top = 0.5
+anchor_right = 0.966
+anchor_bottom = 0.634
+offset_left = -0.0800004
+offset_top = 10.0
+offset_right = 0.89398193
+offset_bottom = 10.486
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 4
+theme_override_styles/background = SubResource("StyleBoxFlat_xloyl")
+theme_override_styles/fill = SubResource("StyleBoxFlat_5iirr")
+max_value = 1000.0
+value = 1000.0
+show_percentage = false
+
+[node name="HealthLabel" type="Label" parent="Display/HUD" unique_id=320455636]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 10.0
+offset_right = 118.0
+offset_bottom = 33.0
+text = "Health: 45/100"
+
 [node name="Environment" type="Node" parent="." unique_id=2062864394]
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Environment" unique_id=1850525840]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.43856812, 9.928387, -94.54502)
+visible = false
 mesh = SubResource("BoxMesh_7ud5i")
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="Environment" unique_id=1655645589]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -45.509262, 9.928387, -94.54502)
+visible = false
 mesh = SubResource("BoxMesh_7ud5i")
 
 [node name="MeshInstance3D3" type="MeshInstance3D" parent="Environment" unique_id=2019692475]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 52.706627, 9.928387, -94.54502)
+visible = false
 mesh = SubResource("BoxMesh_7ud5i")
 
 [node name="MeshInstance3D4" type="MeshInstance3D" parent="Environment" unique_id=635630545]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.43856812, 9.928387, 110.181786)
+visible = false
 mesh = SubResource("BoxMesh_7ud5i")
 
 [node name="MeshInstance3D5" type="MeshInstance3D" parent="Environment" unique_id=1620633349]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -45.509262, 9.928387, 110.181786)
+visible = false
 mesh = SubResource("BoxMesh_7ud5i")
 
 [node name="MeshInstance3D6" type="MeshInstance3D" parent="Environment" unique_id=1757100281]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 52.706627, 9.928387, 110.181786)
+visible = false
 mesh = SubResource("BoxMesh_7ud5i")
 
 [node name="MeshInstance3D7" type="MeshInstance3D" parent="Environment" unique_id=135752259]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.43856812, 76.296326, 29.496971)
+visible = false
 mesh = SubResource("BoxMesh_7ud5i")
 
 [node name="MeshInstance3D8" type="MeshInstance3D" parent="Environment" unique_id=1005464245]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -45.509262, 76.296326, 29.496971)
+visible = false
 mesh = SubResource("BoxMesh_7ud5i")
 
 [node name="MeshInstance3D9" type="MeshInstance3D" parent="Environment" unique_id=1192195481]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 52.706627, 76.296326, 29.496971)
+visible = false
 mesh = SubResource("BoxMesh_7ud5i")
 
 [node name="MeshInstance3D10" type="MeshInstance3D" parent="Environment" unique_id=629970341]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.43856812, -50.056442, 29.496971)
+visible = false
 mesh = SubResource("BoxMesh_7ud5i")
 
 [node name="MeshInstance3D11" type="MeshInstance3D" parent="Environment" unique_id=1736268969]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -45.509262, -50.056442, 29.496971)
+visible = false
 mesh = SubResource("BoxMesh_7ud5i")
 
 [node name="MeshInstance3D12" type="MeshInstance3D" parent="Environment" unique_id=1856479993]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 52.706627, -50.056442, 29.496971)
+visible = false
 mesh = SubResource("BoxMesh_7ud5i")
 
 [node name="MeshInstance3D13" type="MeshInstance3D" parent="Environment" unique_id=1826480728]
 transform = Transform3D(0.15963995, 0, 0.9871753, 0, 1, 0, -0.9871753, 0, 0.15963995, -110.01046, 76.296326, 31.576696)
+visible = false
 mesh = SubResource("BoxMesh_7ud5i")
 
 [node name="MeshInstance3D14" type="MeshInstance3D" parent="Environment" unique_id=1136315253]
 transform = Transform3D(0.15963995, 0, 0.9871753, 0, 1, 0, -0.9871753, 0, 0.15963995, -117.345566, 76.296326, 76.93526)
+visible = false
 mesh = SubResource("BoxMesh_7ud5i")
 
 [node name="MeshInstance3D15" type="MeshInstance3D" parent="Environment" unique_id=1708868266]
 transform = Transform3D(0.15963995, 0, 0.9871753, 0, 1, 0, -0.9871753, 0, 0.15963995, -101.66639, 76.296326, -20.021042)
+visible = false
 mesh = SubResource("BoxMesh_7ud5i")
 
 [node name="SpaceStation" parent="Environment" unique_id=1269542049 instance=ExtResource("4_13c0c")]

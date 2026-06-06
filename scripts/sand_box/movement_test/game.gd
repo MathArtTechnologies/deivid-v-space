@@ -47,4 +47,7 @@ func _spawn_player(peer_id: int) -> void:
 	player.set_multiplayer_authority(peer_id)
 	player.name = str(peer_id)
 	
+	if multiplayer.get_unique_id() == peer_id:
+		self.display.bind_hud_events(player)
+	
 	get_parent().add_child(player)
