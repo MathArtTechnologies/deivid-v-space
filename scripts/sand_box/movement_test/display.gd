@@ -1,28 +1,37 @@
 class_name Display extends Control
 
-@onready var join_button : Button = $NetworkControls/VBoxContainer/Join
-@onready var host_button : Button = $NetworkControls/VBoxContainer/Host
-@onready var network_controls = $NetworkControls
-@onready var fade : ColorRect = $Fade
-@onready var info_label : Label = $ClientInfo
-@onready var ip_edit : TextEdit = $NetworkControls/VBoxContainer/IP
+enum DisplayState { LOBBY, CONNECTING, INGAME, PAUSED, DISCONNECTED }
+
+var state : DisplayState
+
+@onready var lobby : Control = $Lobby
+@onready var connecting : Control = $Connecting
+@onready var pause : Control = $Pause
 @onready var hud : Control = $HUD
+@onready var disconnected : Control = $Disconnected
+@onready var join_button : Button = $Lobby/NetworkControls/VBoxContainer/Join
+@onready var host_button : Button = $Lobby/NetworkControls/VBoxContainer/Host
+@onready var network_controls = $Lobby/NetworkControls
+@onready var info_label : Label = $ClientInfo
+@onready var ip_edit : TextEdit = $Lobby/NetworkControls/VBoxContainer/IP
 @onready var health_bar : ProgressBar = $HUD/HealthBar
 @onready var health_label : Label = $HUD/HealthLabel
 
 func _process(_delta: float) -> void:
 	pass
 
-func set_lobby_menu_visible(visible_: bool) -> void:
-	self.network_controls.visible = visible_
-	self.fade.visible = visible_
-	self._set_cursor_visible(visible_)
-	self.hud.visible = !visible_
-
-func set_pause_menu_visible(visible_: bool) -> void:
-	self.fade.visible = visible_
-	Constants.paused = visible_
-	self._set_cursor_visible(visible_)
+func set_state(state : DisplayState) -> void:
+	self.state = state
+	
+	self.lobby.visible = state == DisplayState.LOBBY
+	self.connecting.visible = state == DisplayState.CONNECTING
+	self.hud.visible = state == DisplayState.INGAME
+	self.pause.visible = state == DisplayState.PAUSED
+	self.disconnected.visible = state == DisplayState.DISCONNECTED
+	
+	Constants.paused = state == DisplayState.PAUSED || state == DisplayState.DISCONNECTED
+	
+	self._set_cursor_visible(state != DisplayState.INGAME)
 
 func _set_cursor_visible(visible_ : bool) -> void:
 	#visible_ = true
@@ -74,3 +83,7 @@ func _on_max_health_changed(new_value: int) -> void:
 
 func _update_health_label() -> void:
 	self.health_label.text = "Health: %d / %d" % [self.health_bar.value, self.health_bar.max_value]
+
+func _on_back_to_lobby_pressed() -> void:
+	print("_on_back_to_lobby_pressed called")
+	self.set_state(Display.DisplayState.LOBBY)

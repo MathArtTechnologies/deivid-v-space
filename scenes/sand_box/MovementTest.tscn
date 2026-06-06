@@ -45,44 +45,8 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("2_npv15")
 
-[node name="Fade" type="ColorRect" parent="Display" unique_id=1748045198]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0, 0, 0, 0.28235295)
-
-[node name="NetworkControls" type="CenterContainer" parent="Display" unique_id=1119221046]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="VBoxContainer" type="VBoxContainer" parent="Display/NetworkControls" unique_id=843170482]
-custom_minimum_size = Vector2(200, 0)
-layout_mode = 2
-theme_override_constants/separation = 8
-alignment = 1
-
-[node name="IP" type="TextEdit" parent="Display/NetworkControls/VBoxContainer" unique_id=513711295]
-custom_minimum_size = Vector2(0, 35)
-layout_mode = 2
-theme_override_font_sizes/font_size = 15
-placeholder_text = "127.0.0.1"
-
-[node name="Join" type="Button" parent="Display/NetworkControls/VBoxContainer" unique_id=870758464]
-layout_mode = 2
-text = "Join"
-
-[node name="Host" type="Button" parent="Display/NetworkControls/VBoxContainer" unique_id=400068210]
-layout_mode = 2
-text = "Host"
-
 [node name="ClientInfo" type="Label" parent="Display" unique_id=2113872943]
+visible = false
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
@@ -133,6 +97,156 @@ offset_top = 10.0
 offset_right = 118.0
 offset_bottom = 33.0
 text = "Health: 45/100"
+
+[node name="Connecting" type="Control" parent="Display" unique_id=1254077555]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Fade" type="ColorRect" parent="Display/Connecting" unique_id=1594629898]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 4.0
+offset_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.28235295)
+
+[node name="Label" type="Label" parent="Display/Connecting" unique_id=1061393840]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -37.5
+offset_top = -11.5
+offset_right = 37.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "connecting to host..."
+
+[node name="Lobby" type="Control" parent="Display" unique_id=556717654]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Fade" type="ColorRect" parent="Display/Lobby" unique_id=1748045198]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.28235295)
+
+[node name="NetworkControls" type="CenterContainer" parent="Display/Lobby" unique_id=1119221046]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Display/Lobby/NetworkControls" unique_id=843170482]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+theme_override_constants/separation = 8
+alignment = 1
+
+[node name="IP" type="TextEdit" parent="Display/Lobby/NetworkControls/VBoxContainer" unique_id=513711295]
+custom_minimum_size = Vector2(0, 35)
+layout_mode = 2
+theme_override_font_sizes/font_size = 15
+placeholder_text = "127.0.0.1"
+
+[node name="Join" type="Button" parent="Display/Lobby/NetworkControls/VBoxContainer" unique_id=870758464]
+layout_mode = 2
+text = "Join"
+
+[node name="Host" type="Button" parent="Display/Lobby/NetworkControls/VBoxContainer" unique_id=400068210]
+layout_mode = 2
+text = "Host"
+
+[node name="Pause" type="Control" parent="Display" unique_id=1527480314]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Fade" type="ColorRect" parent="Display/Pause" unique_id=263103160]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 4.0
+offset_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.28235295)
+
+[node name="Disconnected" type="Control" parent="Display" unique_id=1221865277]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Fade" type="ColorRect" parent="Display/Disconnected" unique_id=1693584153]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 4.0
+offset_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.28235295)
+
+[node name="Label" type="Label" parent="Display/Disconnected" unique_id=688763714]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -37.5
+offset_top = -11.5
+offset_right = 37.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "connection lost with host"
+
+[node name="BackToLobby" type="Button" parent="Display/Disconnected" unique_id=1122061419]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -60.0
+offset_top = 24.0
+offset_right = 60.0
+offset_bottom = 55.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "lobby"
 
 [node name="Environment" type="Node" parent="." unique_id=2062864394]
 
@@ -264,3 +378,5 @@ mesh = SubResource("SphereMesh_npv15")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="asteroide" unique_id=1709719265]
 transform = Transform3D(15.032849, 0, 0, 0, 15.032849, 0, 0, 0, 15.032849, 0, 0, 0)
 shape = SubResource("SphereShape3D_lgdfk")
+
+[connection signal="pressed" from="Display/Disconnected/BackToLobby" to="Display" method="_on_back_to_lobby_pressed"]

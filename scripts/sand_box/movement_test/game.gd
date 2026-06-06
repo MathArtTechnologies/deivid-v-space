@@ -14,31 +14,51 @@ func _ready() -> void:
 	
 	multiplayer.peer_connected.connect(self._on_peer_connected)
 	multiplayer.connected_to_server.connect(self._on_connected_to_server)
+	multiplayer.connection_failed.connect(self._on_connection_failed)
+	multiplayer.server_disconnected.connect(self._on_server_disconnected)
 	
-	self.display.set_lobby_menu_visible(true)
+	self.display.set_state(Display.DisplayState.LOBBY)
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("pause"):
-		self.display.set_pause_menu_visible(not Constants.paused)
+		if self.display.state == Display.DisplayState.PAUSED:
+			self.display.set_state(Display.DisplayState.INGAME)
+		elif self.display.state == Display.DisplayState.INGAME:
+			self.display.set_state(Display.DisplayState.PAUSED)
 
 func _on_host_pressed() -> void:
 	self.peer.create_server(self.port, self.max_clients)
 	multiplayer.multiplayer_peer = self.peer
 	self._spawn_player(1)
-	self.display.set_lobby_menu_visible(false)
+	self.display.set_state(Display.DisplayState.INGAME)
 
 func _on_join_pressed() -> void:
 	self.address = self.display.get_host_ip()
-	self.peer.create_client(self.address, self.port)
+	
+	print("address: ", self.address)
+	
+	var error = self.peer.create_client(self.address, self.port)
+	
+	if error != 0:
+		print("error when creating client: %d" % error)
+	
 	multiplayer.multiplayer_peer = self.peer
-	self.display.set_lobby_menu_visible(false)
+	
+	self.display.set_state(Display.DisplayState.CONNECTING)
 
 func _on_peer_connected(peer_id: int) -> void:
 	self._spawn_player(peer_id)
 
 func _on_connected_to_server() -> void:
 	self._spawn_player(multiplayer.get_unique_id())
+	self.display.set_state(Display.DisplayState.INGAME)
 	self.display.set_client_info(multiplayer.get_unique_id(), self.address, self.port)
+
+func _on_connection_failed() -> void:
+	self.display.set_state(Display.DisplayState.LOBBY)
+
+func _on_server_disconnected() -> void:
+	self.display.set_state(Display.DisplayState.DISCONNECTED)
 
 func _spawn_player(peer_id: int) -> void:
 	var scene = preload("res://scenes/characters/Spaceship.tscn")
