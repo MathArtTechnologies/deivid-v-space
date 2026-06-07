@@ -18,6 +18,7 @@ var state : DisplayState
 @onready var ip_edit : TextEdit = $Lobby/NetworkControls/VBoxContainer/IP
 @onready var health_bar : ProgressBar = $HUD/HealthBar
 @onready var health_label : Label = $HUD/HealthLabel
+@onready var b_respawn : Button = $Dead/ReSpawn
 
 signal on_respawn_click(peer_id: int)
 

@@ -438,4 +438,3 @@ transform = Transform3D(15.032849, 0, 0, 0, 15.032849, 0, 0, 0, 15.032849, 0, 0,
 shape = SubResource("SphereShape3D_lgdfk")
 
 [connection signal="pressed" from="Display/Dead/ReSpawn" to="Display" method="_on_re_spawn_pressed"]
-[connection signal="pressed" from="Display/Disconnected/BackToLobby" to="Display" method="_on_back_to_lobby_pressed"]
