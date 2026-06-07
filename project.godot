@@ -24,12 +24,6 @@ config/icon="res://icon.svg"
 
 Globals="*res://scripts/sand_box/movement_test/constants.gd"
 
-[display]
-
-mouse_cursor/custom_image="uid://cc02ieftn00mi"
-mouse_cursor/custom_image_hotspot=Vector2(5, 5)
-mouse_cursor/tooltip_position_offset=Vector2(0, 0)
-
 [input]
 
 thrust={

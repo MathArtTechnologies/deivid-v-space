@@ -67,3 +67,8 @@ func _on_server_disconnected() -> void:
 func _on_peer_disconnected(id : int) -> void:
 	self.display.set_game_info(len(multiplayer.get_peers()) + 1)
 	self.player_manager.sync_despawn.rpc(id)
+
+func _notification(what):
+	if what == NOTIFICATION_APPLICATION_FOCUS_OUT:
+		if self.display.state == Display.DisplayState.INGAME:
+			self.display.set_state(Display.DisplayState.PAUSED)

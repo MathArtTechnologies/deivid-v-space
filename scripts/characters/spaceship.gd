@@ -41,6 +41,7 @@ func _ready() -> void:
 	if is_multiplayer_authority():
 		self.camera.current = true
 		self.health_bar.visible = false
+		$GPUParticles3D.visible = true
 
 func _input(event: InputEvent) -> void:
 	if not is_multiplayer_authority():

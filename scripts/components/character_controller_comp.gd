@@ -7,6 +7,9 @@ var mouse_return_speed : float
 var stabilize : bool
 
 func _ready() -> void:
+	if not is_multiplayer_authority():
+		return
+	
 	Input.mouse_mode = Input.MOUSE_MODE_CONFINED
 	
 	self.mouse_return_speed = 200
@@ -28,7 +31,7 @@ func get_rotation() -> Vector3:
 	
 	# consider mouse
 	var mouse_pos := get_viewport().get_mouse_position()
-	var center : Vector2 = self.viewport.size / 2
+	var center : Vector2 = get_viewport().size / 2
 	
 	rotation.x = int(clamp(center.y - mouse_pos.y, -1, 1))
 	rotation.z = int(clamp(center.x - mouse_pos.x, -1, 1))
@@ -52,6 +55,8 @@ func _process(_delta: float) -> void:
 	
 	if Constants.paused == true:
 		return
+	
+	self.viewport = get_viewport()
 	
 	if Utils.HasComponent(self.entity, "CharacterRotationComp"):
 		

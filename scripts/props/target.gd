@@ -8,7 +8,7 @@ var breakable_prop_comp : BreakablePropComp
 func _ready() -> void:
 	
 	breakable_prop_comp = $BreakablePropComp
-	breakable_prop_comp.free_on_break = false
+	breakable_prop_comp.free_on_break = true
 	breakable_prop_comp.force = 1.2
 	breakable_prop_comp.entity = self
 	
