@@ -51,7 +51,7 @@ func _physics_process(delta: float) -> void:
 	if not is_multiplayer_authority():
 		return
 	
-	if Constants.paused == true:
+	if GlobalsRepo.paused == true:
 		return
 	
 	var move_dir := self.controller_comp.get_move_direction()

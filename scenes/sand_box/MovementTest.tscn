@@ -274,6 +274,36 @@ grow_horizontal = 2
 grow_vertical = 2
 text = "Paused"
 
+[node name="BBack" type="Button" parent="Display/Pause" unique_id=136812233]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -43.0
+offset_top = 56.0
+offset_right = 44.0
+offset_bottom = 87.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "back"
+
+[node name="BSettings" type="Button" parent="Display/Pause" unique_id=929263492]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -44.0
+offset_top = 20.0
+offset_right = 44.0
+offset_bottom = 51.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "settings"
+
 [node name="Disconnected" type="Control" parent="Display" unique_id=1221865277]
 visible = false
 layout_mode = 1
@@ -321,6 +351,60 @@ offset_bottom = 55.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "lobby"
+
+[node name="Settings" type="Control" parent="Display" unique_id=1561984213]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Fade" type="ColorRect" parent="Display/Settings" unique_id=2026135854]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.28235295)
+
+[node name="GridContainer" type="GridContainer" parent="Display/Settings" unique_id=212887392]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -92.5
+offset_top = -29.5
+offset_right = 92.5
+offset_bottom = 29.5
+grow_horizontal = 2
+grow_vertical = 2
+columns = 2
+
+[node name="Label" type="Label" parent="Display/Settings/GridContainer" unique_id=330045349]
+layout_mode = 2
+text = "stabilization"
+
+[node name="CheckBox" type="CheckBox" parent="Display/Settings/GridContainer" unique_id=1390770461]
+layout_mode = 2
+
+[node name="Label2" type="Label" parent="Display/Settings/GridContainer" unique_id=77340013]
+layout_mode = 2
+text = "sensitivity"
+
+[node name="SpinBox" type="SpinBox" parent="Display/Settings/GridContainer" unique_id=2067804103]
+layout_mode = 2
+
+[node name="SaveSettings" type="Button" parent="Display/Settings/GridContainer" unique_id=1888005933]
+layout_mode = 2
+text = "save"
+
+[node name="ExitSettings" type="Button" parent="Display/Settings/GridContainer" unique_id=696410117]
+layout_mode = 2
+text = "exit"
 
 [node name="PlayerManager" type="Node" parent="." unique_id=788202044]
 script = ExtResource("6_5iirr")
@@ -453,3 +537,7 @@ transform = Transform3D(15.032849, 0, 0, 0, 15.032849, 0, 0, 0, 15.032849, 0, 0,
 shape = SubResource("SphereShape3D_lgdfk")
 
 [connection signal="pressed" from="Display/Dead/ReSpawn" to="Display" method="_on_re_spawn_pressed"]
+[connection signal="pressed" from="Display/Pause/BBack" to="Display" method="_on_b_back_pressed"]
+[connection signal="pressed" from="Display/Pause/BSettings" to="Display" method="_on_b_settings_pressed"]
+[connection signal="pressed" from="Display/Settings/GridContainer/SaveSettings" to="Display" method="_on_save_settings_pressed"]
+[connection signal="pressed" from="Display/Settings/GridContainer/ExitSettings" to="Display" method="_on_exit_settings_pressed"]

@@ -53,14 +53,14 @@ func _process(_delta: float) -> void:
 	if not is_multiplayer_authority():
 		return
 	
-	if Constants.paused == true:
+	if GlobalsRepo.paused == true:
 		return
 	
 	self.viewport = get_viewport()
 	
 	if Utils.HasComponent(self.entity, "CharacterRotationComp"):
 		
-		var sensitivity = 5
+		var sensitivity = GlobalsRepo.sensitivity
 		
 		var screen_siz = self.viewport.size
 		var screen_cen = Vector2(screen_siz / 2)
@@ -109,11 +109,11 @@ func _process(_delta: float) -> void:
 			self.entity.rotate(self.entity.basis.y, 1 * _delta * roll_speed)
 		
 		if Input.is_action_just_pressed("toggle"):
-			self.stabilize = !self.stabilize
+			GlobalsRepo.stabilization = !GlobalsRepo.stabilization
 		
 		# un-roll... ing ("estabilizar" esta wea)
 		
-		if self.stabilize:
+		if GlobalsRepo.stabilization:
 			if not Input.is_action_pressed("roll_left") and not Input.is_action_pressed("roll_right"):
 				var forward = self.entity.basis.y
 				var target_up = (Vector3.UP - Vector3.UP.dot(forward) * forward).normalized()

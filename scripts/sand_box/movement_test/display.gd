@@ -1,6 +1,6 @@
 class_name Display extends Control
 
-enum DisplayState { LOBBY, CONNECTING, INGAME, PAUSED, DISCONNECTED, DEAD }
+enum DisplayState { LOBBY, CONNECTING, INGAME, PAUSED, DISCONNECTED, DEAD, SETTINGS }
 
 var state : DisplayState
 
@@ -10,6 +10,7 @@ var state : DisplayState
 @onready var hud : Control = $HUD
 @onready var disconnected : Control = $Disconnected
 @onready var dead : Control = $Dead
+@onready var settings : Control = $Settings
 @onready var join_button : Button = $Lobby/NetworkControls/VBoxContainer/Join
 @onready var host_button : Button = $Lobby/NetworkControls/VBoxContainer/Host
 @onready var network_controls = $Lobby/NetworkControls
@@ -19,6 +20,8 @@ var state : DisplayState
 @onready var health_bar : ProgressBar = $HUD/HealthBar
 @onready var health_label : Label = $HUD/HealthLabel
 @onready var b_respawn : Button = $Dead/ReSpawn
+@onready var b_settings : Button = $Pause/Settings
+@onready var b_back : Button = $Pause/Back
 
 signal on_respawn_click(peer_id: int)
 
@@ -35,7 +38,9 @@ func set_state(state : DisplayState) -> void:
 	self.disconnected.visible = state == DisplayState.DISCONNECTED
 	self.dead.visible = state == DisplayState.DEAD
 	
-	Constants.paused = (state == DisplayState.PAUSED || state == DisplayState.DISCONNECTED || state == DisplayState.DEAD)
+	self._set_settings_visible(state == DisplayState.SETTINGS)
+	
+	GlobalsRepo.paused = (state == DisplayState.PAUSED || state == DisplayState.DISCONNECTED || state == DisplayState.DEAD || state == DisplayState.SETTINGS)
 	
 	self._set_cursor_visible(state != DisplayState.INGAME)
 
@@ -99,3 +104,24 @@ func _on_back_to_lobby_pressed() -> void:
 
 func _on_re_spawn_pressed() -> void:
 	self.on_respawn_click.emit(multiplayer.get_unique_id())
+
+func _on_b_back_pressed() -> void:
+	self.set_state(DisplayState.INGAME)
+
+func _on_b_settings_pressed() -> void:
+	self.set_state(DisplayState.SETTINGS)
+
+func _set_settings_visible(visible_ : bool):
+	$Settings/GridContainer/CheckBox.button_pressed = GlobalsRepo.stabilization
+	$Settings/GridContainer/SpinBox.value = GlobalsRepo.sensitivity
+	
+	self.settings.visible = visible_
+
+func _on_save_settings_pressed() -> void:
+	GlobalsRepo.stabilization = $Settings/GridContainer/CheckBox.button_pressed
+	GlobalsRepo.sensitivity = $Settings/GridContainer/SpinBox.value
+	
+	self.set_state(DisplayState.PAUSED)
+
+func _on_exit_settings_pressed() -> void:
+	self.set_state(DisplayState.PAUSED)
