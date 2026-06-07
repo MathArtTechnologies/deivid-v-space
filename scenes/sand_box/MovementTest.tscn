@@ -5,6 +5,7 @@
 [ext_resource type="Script" uid="uid://pouf1yivbscj" path="res://scripts/sand_box/movement_test/display.gd" id="2_npv15"]
 [ext_resource type="PackedScene" uid="uid://ck5f61xk4fdf7" path="res://scenes/props/SpaceStation.tscn" id="4_13c0c"]
 [ext_resource type="PackedScene" uid="uid://japxe55hveli" path="res://scenes/props/TargetBroken.tscn" id="5_xloyl"]
+[ext_resource type="Script" uid="uid://6yj0v4yvihi" path="res://scripts/sand_box/movement_test/player_manager.gd" id="6_5iirr"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_13c0c"]
 panorama = ExtResource("2_lgdfk")
@@ -37,6 +38,7 @@ environment = SubResource("Environment_5iirr")
 
 [node name="Display" type="Control" parent="." unique_id=1897870470]
 process_mode = 3
+z_index = -1
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -46,7 +48,6 @@ grow_vertical = 2
 script = ExtResource("2_npv15")
 
 [node name="ClientInfo" type="Label" parent="Display" unique_id=2113872943]
-visible = false
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
@@ -57,6 +58,16 @@ grow_horizontal = 2
 text = "peer_id: 1
 host: 127.0.0.1
 port: 3435"
+
+[node name="GameInfo" type="Label" parent="Display" unique_id=392618384]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_right = -4.0
+offset_bottom = 23.0
+grow_horizontal = 2
+text = "player_count: 0"
+horizontal_alignment = 2
 
 [node name="HUD" type="Control" parent="Display" unique_id=423423118]
 visible = false
@@ -133,6 +144,55 @@ grow_horizontal = 2
 grow_vertical = 2
 text = "connecting to host..."
 
+[node name="Dead" type="Control" parent="Display" unique_id=88284491]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Fade" type="ColorRect" parent="Display/Dead" unique_id=188805552]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.28235295)
+
+[node name="Label" type="Label" parent="Display/Dead" unique_id=453839239]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -43.5
+offset_top = -11.5
+offset_right = 43.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Game Over"
+
+[node name="ReSpawn" type="Button" parent="Display/Dead" unique_id=1726229252]
+process_mode = 3
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.52400005
+anchor_right = 0.5
+anchor_bottom = 0.52400005
+offset_left = -37.0
+offset_top = 8.447968
+offset_right = 38.0
+offset_bottom = 39.447968
+grow_horizontal = 2
+grow_vertical = 2
+text = "re-spawn"
+
 [node name="Lobby" type="Control" parent="Display" unique_id=556717654]
 visible = false
 layout_mode = 1
@@ -200,6 +260,7 @@ grow_vertical = 2
 color = Color(0, 0, 0, 0.28235295)
 
 [node name="Disconnected" type="Control" parent="Display" unique_id=1221865277]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -212,8 +273,6 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_right = 4.0
-offset_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 0.28235295)
@@ -247,6 +306,9 @@ offset_bottom = 55.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "lobby"
+
+[node name="PlayerManager" type="Node" parent="." unique_id=788202044]
+script = ExtResource("6_5iirr")
 
 [node name="Environment" type="Node" parent="." unique_id=2062864394]
 
@@ -328,10 +390,6 @@ mesh = SubResource("BoxMesh_7ud5i")
 [node name="SpaceStation" parent="Environment" unique_id=1269542049 instance=ExtResource("4_13c0c")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 64, 14, -11)
 
-[node name="MultiplayerSpawner" type="MultiplayerSpawner" parent="." unique_id=554921080]
-_spawnable_scenes = PackedStringArray("uid://cp0lfbi17x0r8")
-spawn_path = NodePath("..")
-
 [node name="Targets" type="Node" parent="." unique_id=1335015128]
 
 [node name="Target1" parent="Targets" unique_id=271637056 instance=ExtResource("5_xloyl")]
@@ -379,4 +437,5 @@ mesh = SubResource("SphereMesh_npv15")
 transform = Transform3D(15.032849, 0, 0, 0, 15.032849, 0, 0, 0, 15.032849, 0, 0, 0)
 shape = SubResource("SphereShape3D_lgdfk")
 
+[connection signal="pressed" from="Display/Dead/ReSpawn" to="Display" method="_on_re_spawn_pressed"]
 [connection signal="pressed" from="Display/Disconnected/BackToLobby" to="Display" method="_on_back_to_lobby_pressed"]

@@ -1,6 +1,6 @@
 class_name Display extends Control
 
-enum DisplayState { LOBBY, CONNECTING, INGAME, PAUSED, DISCONNECTED }
+enum DisplayState { LOBBY, CONNECTING, INGAME, PAUSED, DISCONNECTED, DEAD }
 
 var state : DisplayState
 
@@ -9,13 +9,17 @@ var state : DisplayState
 @onready var pause : Control = $Pause
 @onready var hud : Control = $HUD
 @onready var disconnected : Control = $Disconnected
+@onready var dead : Control = $Dead
 @onready var join_button : Button = $Lobby/NetworkControls/VBoxContainer/Join
 @onready var host_button : Button = $Lobby/NetworkControls/VBoxContainer/Host
 @onready var network_controls = $Lobby/NetworkControls
-@onready var info_label : Label = $ClientInfo
+@onready var client_info_label : Label = $ClientInfo
+@onready var game_info_label : Label = $GameInfo
 @onready var ip_edit : TextEdit = $Lobby/NetworkControls/VBoxContainer/IP
 @onready var health_bar : ProgressBar = $HUD/HealthBar
 @onready var health_label : Label = $HUD/HealthLabel
+
+signal on_respawn_click(peer_id: int)
 
 func _process(_delta: float) -> void:
 	pass
@@ -28,8 +32,9 @@ func set_state(state : DisplayState) -> void:
 	self.hud.visible = state == DisplayState.INGAME
 	self.pause.visible = state == DisplayState.PAUSED
 	self.disconnected.visible = state == DisplayState.DISCONNECTED
+	self.dead.visible = state == DisplayState.DEAD
 	
-	Constants.paused = state == DisplayState.PAUSED || state == DisplayState.DISCONNECTED
+	Constants.paused = (state == DisplayState.PAUSED || state == DisplayState.DISCONNECTED || state == DisplayState.DEAD)
 	
 	self._set_cursor_visible(state != DisplayState.INGAME)
 
@@ -50,24 +55,24 @@ func get_host_ip():
 		return "127.0.0.1"
 
 func set_client_info(peer_id, host, port):
-	self.info_label.text = ""
+	self.client_info_label.text = ""
 	
-	self.info_label.text += "peer_id: %d" % peer_id
-	self.info_label.text += "\nhost: %s" % host
-	self.info_label.text += "\nport: %s" % port
+	self.client_info_label.text += "peer_id: %d" % peer_id
+	self.client_info_label.text += "\nhost: %s" % host
+	self.client_info_label.text += "\nport: %s" % port
+
+func set_game_info(player_count: int):
+	self.game_info_label.text = ""
 	
-	## update client info label
-	#if multiplayer.is_server() == false:
-		#self.info_label.text += "peer_id: %d" % multiplayer.get_unique_id()
-	#else:
-		#self.info_label.text += "peer_id: 1"
+	self.game_info_label.text += "total_players: %d" % player_count
 
 func bind_hud_events(character : Spaceship) -> void:
 	if not character.is_node_ready():
 		await character.ready 
 	
-	character.health_component.on_health_changed.connect(_on_health_changed)
-	character.health_component.on_max_health_changed.connect(_on_max_health_changed)
+	character.health_component.on_health_changed.connect(self._on_health_changed)
+	character.health_component.on_max_health_changed.connect(self._on_max_health_changed)
+	character.health_component.on_die.connect(self._on_die)
 	
 	self.health_bar.value = character.health_component.health
 	self.health_bar.max_value = character.health_component.max_health
@@ -84,6 +89,12 @@ func _on_max_health_changed(new_value: int) -> void:
 func _update_health_label() -> void:
 	self.health_label.text = "Health: %d / %d" % [self.health_bar.value, self.health_bar.max_value]
 
+func _on_die() -> void:
+	self.set_state(DisplayState.DEAD)
+
 func _on_back_to_lobby_pressed() -> void:
 	print("_on_back_to_lobby_pressed called")
 	self.set_state(Display.DisplayState.LOBBY)
+
+func _on_re_spawn_pressed() -> void:
+	self.on_respawn_click.emit(multiplayer.get_unique_id())

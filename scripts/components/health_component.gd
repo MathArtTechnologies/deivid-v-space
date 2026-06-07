@@ -46,3 +46,6 @@ func request_take_damage(damage : int) -> void:
 @rpc("authority", "call_local", "reliable")
 func apply_take_damage(damage : int) -> void:
 	take_damage(damage)
+
+func restore_health():
+	self.health = self.max_health

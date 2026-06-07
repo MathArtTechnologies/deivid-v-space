@@ -2,6 +2,7 @@ class_name Game
 extends Node3D
 
 @onready var display : Display = $Display
+@onready var player_manager : PlayerManager = $PlayerManager
 
 var address : String = "localhost"
 var port : int = 3435
@@ -61,13 +62,8 @@ func _on_server_disconnected() -> void:
 	self.display.set_state(Display.DisplayState.DISCONNECTED)
 
 func _spawn_player(peer_id: int) -> void:
-	var scene = preload("res://scenes/characters/Spaceship.tscn")
-	var player = scene.instantiate()
 	
-	player.set_multiplayer_authority(peer_id)
-	player.name = str(peer_id)
+	var player = await self.player_manager.spawn_player(peer_id, Vector3.ZERO)
 	
 	if multiplayer.get_unique_id() == peer_id:
 		self.display.bind_hud_events(player)
-	
-	get_parent().add_child(player)
