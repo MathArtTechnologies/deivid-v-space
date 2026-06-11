@@ -22,3 +22,22 @@ True 3D third person shooter game in Godot
 - environmental hazards (asteroids, debris, anomalies)
 - power-ups or temporary buffs
 - bots for practice or filling teams
+
+## in-depth
+### sobre la estacion espacial
+
+- tiene escudo
+- el escudo es modular
+- el escudo no se regenera 
+- es estática (no se mueve)
+- no-visible
+
+### sobre la nave espacial 
+
+- la vida se regenera pero esta mas dificil (otro método)
+- escudo se regenera con el tiempo
+- se debe identificar de alguna manera que es de tu equipo o del contrario
+- puede dar la vuelta, para voltear al otro lado, maniobra pro
+- esquivar 
+- puedes hacer ping
+- combustible

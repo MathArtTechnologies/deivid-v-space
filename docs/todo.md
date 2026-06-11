@@ -14,13 +14,17 @@
 
 ### quality of life
 - refactor component base architecture to use "the tick pattern", have only one physics_process per entity instead of one per component. This improves the predictability and readability of the code.
-- refactor networking into network manage / available networks[] array, in preparation for noray and steam support
+- refactor networking into network manager / available networks[] array, in preparation for noray and steam support
 
 ### unknowns, probably todo but unsure
 - can the players restore health? how??
 - ammunition, energy bar for the laser beam?
 
-
 ### other / long term
 - noray support
 - steam support
+
+### cosas que vimos del halo
+- la transicion entre la velocidad normal y el boost es mas smooth
+- la nave siempre se esta moviendo
+- hay varias velocidades
