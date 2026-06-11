@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://ck5f61xk4fdf7" path="res://scenes/props/SpaceStation.tscn" id="4_13c0c"]
 [ext_resource type="PackedScene" uid="uid://japxe55hveli" path="res://scenes/props/TargetBroken.tscn" id="5_xloyl"]
 [ext_resource type="Script" uid="uid://6yj0v4yvihi" path="res://scripts/sand_box/movement_test/player_manager.gd" id="6_5iirr"]
+[ext_resource type="PackedScene" uid="uid://lcnlnx4nphet" path="res://scenes/sand_box/obstaculos.tscn" id="7_4nmwc"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_13c0c"]
 panorama = ExtResource("2_lgdfk")
@@ -535,6 +536,9 @@ mesh = SubResource("SphereMesh_npv15")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="asteroide" unique_id=1709719265]
 transform = Transform3D(15.032849, 0, 0, 0, 15.032849, 0, 0, 0, 15.032849, 0, 0, 0)
 shape = SubResource("SphereShape3D_lgdfk")
+
+[node name="obstaculos" parent="." unique_id=827398279 instance=ExtResource("7_4nmwc")]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, -59, 0)
 
 [connection signal="pressed" from="Display/Dead/ReSpawn" to="Display" method="_on_re_spawn_pressed"]
 [connection signal="pressed" from="Display/Pause/BBack" to="Display" method="_on_b_back_pressed"]
