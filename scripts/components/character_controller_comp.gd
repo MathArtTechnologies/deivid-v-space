@@ -49,7 +49,7 @@ func get_rotation() -> Vector3:
 	
 	return rotation.normalized()
 
-func _process(_delta: float) -> void:
+func _physics_process(delta: float) -> void:
 	if not is_multiplayer_authority():
 		return
 	
@@ -73,7 +73,7 @@ func _process(_delta: float) -> void:
 		#print("cursor_from_center: ", cursor_foc)
 		#print("cursor_to_center:   ", cursor_toc)
 		
-		var step = cursor_toc * _delta * sensitivity
+		var step = cursor_toc * delta * sensitivity
 		
 		# work the floating points, snapping to the center prevents locking in continuous rotation
 		
@@ -104,9 +104,9 @@ func _process(_delta: float) -> void:
 		var roll_speed = 3
 		
 		if Input.is_action_pressed("roll_left"):
-			self.entity.rotate(self.entity.basis.y, -1 * _delta * roll_speed)
+			self.entity.rotate(self.entity.basis.y.normalized(), -1 * delta * roll_speed)
 		if Input.is_action_pressed("roll_right"):
-			self.entity.rotate(self.entity.basis.y, 1 * _delta * roll_speed)
+			self.entity.rotate(self.entity.basis.y.normalized(), 1 * delta * roll_speed)
 		
 		if Input.is_action_just_pressed("toggle"):
 			GlobalsRepo.stabilization = !GlobalsRepo.stabilization
@@ -119,4 +119,4 @@ func _process(_delta: float) -> void:
 				var target_up = (Vector3.UP - Vector3.UP.dot(forward) * forward).normalized()
 				if target_up.length_squared() > 0.001:
 					var roll_error = self.entity.basis.z.signed_angle_to(target_up, forward)
-					self.entity.rotate(forward.normalized(), roll_error * _delta * roll_speed)
+					self.entity.rotate(forward.normalized(), roll_error * delta * roll_speed)
