@@ -1,6 +1,9 @@
 class_name Spaceship extends CharacterBody3D
 
 var peer_id : int
+var team : int = 1: set = _set_team
+
+@onready var mesh : MeshInstance3D = $Mesh
 
 var character_velocity_comp : CharacterVelocityComp
 var controller_comp : CharacterControllerComp
@@ -81,3 +84,15 @@ func _on_health_changed(new_value):
 
 func _on_max_health_changed(new_value):
 	self.health_bar.max_health = new_value
+
+func _set_team(new_value) -> void:
+	team = new_value
+	
+	var material = self.mesh.get_surface_override_material(0).duplicate()
+	
+	if self.team % 2:
+		material.albedo_color = Color.BLUE
+	else:
+		material.albedo_color = Color.RED
+	
+	self.mesh.set_surface_override_material(0, material)
