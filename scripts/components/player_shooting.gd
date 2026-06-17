@@ -49,6 +49,9 @@ func disparar() -> void:
 
 func _handle_collisio(collider) -> void:
 	
+	if collider is Spacestation:
+		collider.health_component.health -= 10
+	
 	if collider is RigidBody3D:
 		if collider.get_parent() is Target:
 			#collider.get_parent().breakable_prop_comp.do_break()
