@@ -11,6 +11,8 @@
 [ext_resource type="Script" uid="uid://d230r50gd1pfn" path="res://scripts/components/canon.gd" id="8_2a581"]
 [ext_resource type="PackedScene" uid="uid://boh23773u5jmy" path="res://scenes/ui/HealthBar.tscn" id="9_jtq3w"]
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7gkjs"]
+
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_x7kw5"]
 points = PackedVector3Array(1, 0.0068258713, 0.7928281, 0.33320284, 0.4945126, 0.19662654, -1, 0.0068258713, 0.7928281, 1, 0, 0.7928281, 1, 0.13608173, -0.33340025, -0.33339858, 0.4945126, 0.19662654, 0.33320284, 0.4945126, -0.33340025, -1, 0, 0.7928281, -1, 0.13608173, -0.33340025, 1, 0, -0.33340025, 0, 0.13608173, -1.346545, -0.33339858, 0.4945126, -0.33340025, 0, 0.2765204, -0.98321176, -1, 0, -0.33340025, 0, 0, -1.346545)
 
@@ -60,6 +62,7 @@ script = ExtResource("1_ffpsi")
 [node name="Mesh" type="MeshInstance3D" parent="." unique_id=1245663333]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
 mesh = ExtResource("2_kroix")
+surface_material_override/0 = SubResource("StandardMaterial3D_7gkjs")
 
 [node name="Collision" type="CollisionShape3D" parent="." unique_id=838774523]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)

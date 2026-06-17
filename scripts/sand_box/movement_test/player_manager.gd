@@ -24,6 +24,8 @@ func spawn_player(id: int):
 		self.sync_despawn.rpc(id)
 	)
 	
+	player.team = randi()
+	
 	if multiplayer.get_unique_id() == id:
 		self.display.bind_hud_events(player)
 	
