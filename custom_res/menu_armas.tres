@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="weapon_menu" format=3 uid="uid://cpfuhi2b84wyj"]
+
+[ext_resource type="Script" uid="uid://c136gxelanc4i" path="res://custom_res/shoot_type.gd" id="1_fuw83"]
+[ext_resource type="Resource" uid="uid://cfvojcvunsto3" path="res://custom_res/laser.tres" id="2_2ufoi"]
+[ext_resource type="Script" uid="uid://cejl4685tf6k7" path="res://custom_res/weapon_menu_type.gd" id="2_kd0xa"]
+
+[resource]
+script = ExtResource("2_kd0xa")
+disparos = Array[ExtResource("1_fuw83")]([ExtResource("2_2ufoi")])
+metadata/_custom_type_script = "uid://cejl4685tf6k7"

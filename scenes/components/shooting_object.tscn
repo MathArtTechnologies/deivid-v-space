@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://cr183cbc3i0p6"]
+
+[ext_resource type="Script" uid="uid://dxdmj7dciudhd" path="res://scripts/components/shooting_object.gd" id="1_pe4o5"]
+[ext_resource type="Resource" uid="uid://cpfuhi2b84wyj" path="res://custom_res/menu_armas.tres" id="2_fpr6a"]
+
+[node name="shooting_object" type="Node" unique_id=26598075]
+script = ExtResource("1_pe4o5")
+armas = ExtResource("2_fpr6a")

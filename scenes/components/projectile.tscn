@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://c325ts4245ppq"]
+
+[ext_resource type="Script" uid="uid://snj7dieccji3" path="res://projectile.gd" id="1_ae8u7"]
+[ext_resource type="Resource" uid="uid://cfvojcvunsto3" path="res://custom_res/laser.tres" id="2_im1d0"]
+
+[node name="Projectile" type="Node3D" unique_id=826487339]
+script = ExtResource("1_ae8u7")
+bala_tipo = ExtResource("2_im1d0")

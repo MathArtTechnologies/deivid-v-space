@@ -31,3 +31,6 @@ class_name shoot_type
 @export var Explosion : bool = false
 @export var Split : bool = false
 @export var Rebotar : bool = false
+
+@export_group("Animacion")
+@export var proyectil : PackedScene
